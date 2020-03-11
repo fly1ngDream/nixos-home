@@ -13,7 +13,7 @@ imports = [
   # The host-specific configuration.
   ./host-configuration.nix
   # Any overrides you might want (temporarily).
-  ./overrides.nix
+  # ./overrides.nix
 ];
 
 boot.cleanTmpDir = true;
@@ -44,6 +44,7 @@ environment.systemPackages = with pkgs; [
 
 fonts.fonts = with pkgs; [
   dejavu_fonts
+  terminus_font
   fira-code
   fira-code-symbols
   font-awesome_5
@@ -92,50 +93,6 @@ programs.zsh.enable = false;
 
 security.sudo.wheelNeedsPassword = false;
 
-services.bitlbee = {
-  enable = true;
-  libpurple_plugins = with pkgs; [ telegram-purple ];
-  plugins = with pkgs; [ bitlbee-discord ];
-};
-
-services.borgbackup.jobs = {
-  home = {
-    paths = [
-      "~/Backups"
-      "~/dev"
-      "~/gallery"
-      "~/org"
-      "~/priv"
-    ];
-    exclude = [
-      "*/.git"
-      "*/target"
-      "*/_?build"
-      "*/vendor"
-      "*/tmp"
-      "*/cache"
-      "*/node_modules"
-      "*/dev/contrib"
-    ];
-    repo = "19362@ch-s012.rsync.net:backups";
-    extraArgs = "--remote-path=borg1";
-    encryption = {
-      mode = "repokey";
-      passCommand = "${pkgs.pass} show borgbackup";
-    };
-    compression = "zstd";
-    prune.keep = {
-      within = "1d";
-      daily = 7;
-      weekly = 4;
-      monthly = -1;
-    };
-    startAt = "16:00";
-    user = "brightone";
-    group = "nogroup";
-  };
-};
-
 services.dbus.packages = [ pkgs.gnome3.dconf ];
 
 services.flatpak.enable = true;
@@ -147,9 +104,9 @@ xdg.portal = {
 
 services.geoclue2.enable = true;
 
-services.tor = {
+services.xserver = {
   enable = true;
-  client.enable = true;
+  displayManager.sddm.enable = true;
 };
 
 time.timeZone = "Europe/Kiev";

@@ -8,27 +8,30 @@
     # Disable ad-hoc user management.
     mutableUsers = false;
 
-    users.brightone = {
+    users.yevhens = {
       isNormalUser = true;
       extraGroups =
-        [ "audio" "camera" "input" "networkmanager" "video" "wheel" ];
-      hashedPassword =
-        "$6$Hbwcp8inqhM0K$cuw2YW25pwTVSJcxOwRLuDszM1InXXeMSGXNLSXMAd7DWQayTUXwinXEOQZ1vydbafDqFHle0eVZPqAuMzRBw0";
+        [ "sudo" "wheel" ];
+      hashedPassword = "$1$Z7X9FGwu$fBYUonPaBwqVPr60VjFw0/";
       shell = pkgs.zsh;
     };
   };
 
-  home-manager.users.brightone = { pkgs, ... }: {
+  home-manager.users.yevhens = { pkgs, ... }: {
     imports = [ ./email.nix ./files ./packages.nix ./programs ./themes.nix ];
 
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [ "openssl-1.0.2u" ];
+      pulseaudio = true;
+    };
 
     programs = {
       asdf.enable = false;
       crystal.enable = true;
       emacs = {
         enable = true;
-        useHead = false;
+        useHead = true;
       };
       git = {
         enable = true;

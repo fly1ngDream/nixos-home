@@ -1,0 +1,131 @@
+$font-stack: "Roboto", "Material Icons", "Font Awesome"
+$primary-color: #ffffff
+$secondary-color: #E57375
+$background-color: rgba(43, 48, 59, 0.5)
+$border-color: rgba(100, 114, 125, 0.5)
+
+%module-shared
+    padding: 0 10px
+    margin: 0 4px
+    color: $primary-color
+    border-bottom: 3px solid $secondary-color
+
+
+*
+    border: none
+    border-radius: 0
+    font-family: $font-stack
+    font-size: 15px
+    min-height: 0
+
+
+window
+    &#waybar
+        background-color: $background-color
+        border-bottom: 3px solid $border-color
+        color: $primary-color
+        transition-property: background-color
+        transition-duration: .5s
+
+        &.hidden
+            opacity: 0.2
+
+        &.termite
+            background-color: #3F3F3F
+
+        &.chromium
+            background-color: #000000
+            border: none
+
+
+#workspaces
+    button
+        padding: 0 10px
+        background-color: transparent
+        color: $primary-color
+        border-bottom: 3px solid transparent
+
+        &:hover
+            background: rgba(0, 0, 0, 0.2)
+            box-shadow: inherit
+            border-bottom: 3px solid $primary-color
+
+        &.focused
+            border-bottom: 3px solid $secondary-color
+
+        &.urgent
+            background-color: #eb4d4b
+
+
+#mode
+    @extend %module-shared
+
+    background-color: #64727D
+    border-bottom: 3px solid $primary-color
+
+
+#clock
+    padding: 0 10px
+    margin: 0 4px
+    color: $primary-color
+
+
+@keyframes blink
+    to
+        background-color: $primary-color
+        color: #000000
+
+
+#battery
+    padding: 0 10px
+    margin: 0 4px
+    color: $secondary-color
+
+
+    &.charging,
+    &.plugged
+        color: #26A65B
+
+    &.critical:not(.charging)
+        background-color: #f53c3c
+        color: $primary-color
+        animation-name: blink
+        animation-duration: 0.5s
+        animation-timing-function: linear
+        animation-iteration-count: infinite
+        animation-direction: alternate
+
+
+label
+    &:focus
+        background-color: #000000
+
+
+#backlight
+    @extend %module-shared
+    background-color: #90b1b1
+
+
+#network
+    @extend %module-shared
+
+    &.disconnected
+        color: $secondary-color
+        border-bottom: 0
+
+
+#pulseaudio
+    @extend %module-shared
+
+    &.muted
+        color: $secondary-color
+        border-bottom: 0
+
+
+#tray
+    padding-right: 10px
+    margin-right: 4px
+
+
+#custom-keyboard
+    @extend %module-shared

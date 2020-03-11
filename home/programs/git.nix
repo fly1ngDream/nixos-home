@@ -45,8 +45,8 @@ in {
         key = "F5493B7F93725578FDD3D0B8A1BC8428323ECFE8";
         signByDefault = true;
       };
-      userName = "Oleksii Filonenko";
-      userEmail = "brightone@protonmail.com";
+      userName = "Yevhen Shymotyuk";
+      userEmail = "fly1ngdream@pm.me";
       extraConfig = {
         core.pager = if (cfg.pager == "delta") then
           "delta --dark"
@@ -54,7 +54,7 @@ in {
           "diff-so-fancy | less --tabs=4 -RFX"
         else
           null;
-        github.user = "filalex77";
+        github.user = "fly1ngdream";
       };
     };
   };

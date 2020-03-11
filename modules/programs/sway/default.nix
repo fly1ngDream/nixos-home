@@ -39,7 +39,7 @@ in {
           gebaar-libinput # libinput gestures utility
           glpaper # GL shaders as wallpaper
           grim # screen image capture
-          i3status-rust # cool bar
+          # i3status-rust # cool bar
           imv # image viewer
           kanshi # dynamic display configuration helper
           mako # notification daemon
@@ -50,19 +50,20 @@ in {
           waypipe # network transparency for Wayland
           wf-recorder # wayland screenrecorder
           wl-clipboard # clipboard CLI utilities
-          wmctrl
-          wtype # xdotool, but for wayland (TODO broken)
+          # wmctrl
+          # wtype # xdotool, but for wayland (TODO broken)
           xdg-desktop-portal-wlr # xdg-desktop-portal backend for wlroots
           ydotool # xdotool for wayland
         ] ++ (optional cfg.enableXwayland xwayland)
         ++ (optional cfg.enableQtwayland qt5.qtwayland);
     };
 
-    home-manager.users.brightone = {
+    home-manager.users.yevhens = {
       xdg.configFile."sway/config".source = ./.config/sway/config;
       xdg.configFile."swaylock/config".source = ./.config/swaylock/config;
       xdg.configFile."i3statusbar.toml".source = ./.config/i3statusbar.toml;
       xdg.configFile."kanshi/config".source = ./.config/kanshi/config;
+      xdg.configFile."mako/launch.sh".source = ./.config/mako/launch.sh;
     };
   };
 }

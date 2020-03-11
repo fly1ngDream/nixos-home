@@ -8,8 +8,8 @@
         y = 2;
       };
       font = {
-        normal.family = "FuraCode Nerd Font";
-        size = 10.0;
+        normal.family = "Fira Code";
+        size = 12.0;
       };
       colors = {
         primary = {

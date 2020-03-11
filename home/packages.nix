@@ -14,9 +14,6 @@
         withGTK3 = true;
         withGTK2 = false;
       });
-      steamWithLibs =
-        (steam.override { extraPkgs = pkgs: [ libjpeg openssl_1_0_2 ]; });
-      steam-run = (steamWithLibs.override { nativeOnly = true; }).run;
     in [
       # development
       ameba
@@ -38,13 +35,10 @@
       ruby
       shellcheck
       shfmt
-      stack
       wakatime
       zig
 
       # nix stuff
-      nixfmt
-      nix-diff
       nix-index
       nix-prefetch-github
       nixpkgs-review
@@ -80,30 +74,20 @@
       # communication
       discord
       riot-desktop
-      slack
+      # slack
       tdesktop
-      weechat
-      zoom-us
-
-      # gaming software
-      steamWithLibs
-      steam-run
-      wineFull
-      winetricks
-
-      # games
-      cataclysm-dda-git
+      # weechat
+      # zoom-us
 
       # monitoring
       inxi
       neofetch
-      python3Packages.glances
+      glances
       speedtest-cli
 
       # passwords & security
       gopass
       pass
-      tor-browser-bundle-bin
 
       # net & cloud tools
       ddgr
@@ -119,10 +103,10 @@
 
       # entertainment
       epr
-      python3Packages.mps-youtube
+      # python3Packages.mps-youtube
       youtube-dl
 
       # my stuff
-      swaylayout
+      # swaylayout
     ];
 }

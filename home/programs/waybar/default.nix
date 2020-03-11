@@ -12,16 +12,12 @@ in {
         position = "top";
         height = 30;
         modules-left = [ "sway/workspaces" "sway/mode" "sway/window" ];
-        modules-center = [ ];
+        modules-center = [ "clock" ];
         modules-right = [
           "custom/keyboard"
+          "pulseaudio"
           "network"
           "battery"
-          "backlight"
-          "pulseaudio"
-          "cpu"
-          "idle_inhibitor"
-          "clock"
           "tray"
         ];
         "sway/mode" = {
@@ -37,14 +33,14 @@ in {
         };
         network = {
           tooltip = false;
-          format-wifi = "{essid} ({signalStrength}%) ";
+          format-wifi = " {essid} ({signalStrength}%)";
           format-ethernet = "{ifname}: {ipaddr}/{cidr}";
           format-linked = "{ifname} (No IP)";
           format-alt = "{ifname}: {ipaddr}";
           format-disconnected = "No internet";
         };
         battery = {
-          format = "{capacity}% {icon}";
+          format = "{icon} {capacity}%";
           states = {
             warning = 30;
             critical = 15;
@@ -73,22 +69,9 @@ in {
           };
           on-click = "pavucontrol";
         };
-        cpu = {
-          interval = 8;
-          tooltip = false;
-          format = "{usage}% ";
-        };
-        idle_inhibitor = {
-          tooltip = false;
-          format = "{icon}";
-          format-icons = {
-            activated = " spotted";
-            deactivated = " hidden";
-          };
-        };
         clock = {
           tooltip = false;
-          format = "{:%a, %d %b %H:%M}";
+          format = "{:%a %d/%m | %H:%M}";
         };
         tray = {
           tooltip = false;
@@ -114,5 +97,6 @@ in {
   config = mkIf cfg.enable {
     xdg.configFile."waybar/config".text = generators.toJSON { } cfg.config;
     xdg.configFile."waybar/style.css".source = cfg.stylePath;
+    xdg.configFile."waybar/launch.sh".source = ./.config/waybar/launch.sh;
   };
 }

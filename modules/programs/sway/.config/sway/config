@@ -1,243 +1,216 @@
-## Variables
+# font
+font pango:Fira Code 10
 
-set {
-    # Logo key. Use Mod1 for Alt.
-    $mod Mod4
-    # Home row direction keys, like vim
-    $left h
-    $down j
-    $up k
-    $right l
 
-    # Your preferred terminal emulator
-    $term alacritty
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up k
+set $down j
+set $left h
+set $right l
 
-    # Your preferred application launcher
-    $menu rofi -show drun
-}
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier Mod4
 
-## Settings
+focus_follows_mouse no
 
-default_border pixel 1
+for_window [class="^.*"] border pixel 1
+client.focused #353439 #993399 #7B9F35 #993399 #993399
 
-# Drag floating windows by holding down $mod and left mouse button.
-# Resize them with right mouse button + $mod.
-# Despite the name, also works for non-floating windows.
-# Change normal to inverse to use left mouse button for resizing and right
-# mouse button for dragging.
-floating_modifier $mod normal
-
-gaps inner 10
+# GAPS
+gaps inner 5
+gaps outer 3
 smart_gaps on
 smart_borders on
-
-## Output configuration
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-# REVIEW: using kanshi
-
-## Autostart
-
-exec {
-    # This will lock your screen after 300 seconds of inactivity, then turn off
-    # your displays after another 300 seconds, and turn your screens back on when
-    # resumed. It will also lock your screen before your computer goes to sleep.
-    swayidle -w \
-      timeout 300 'swaylock -f' \
-      timeout 600 'swaymsg "output * dpms off"' \
-      resume 'swaymsg "output * dpms on"' \
-      before-sleep 'swaylock -f'
-    kanshi
-    mako
-    waybar -c ~/.config/waybar/config \
-      -s ~/.config/waybar/style.css
-}
-
-## Input configuration
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+default_border pixel 3
 
 input type:keyboard {
     xkb_layout us,ru,ua
-    xkb_options grp:alt_shift_toggle,caps:swapescape
+    xkb_options grp:alt_shift_toggle
 }
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+input "2821:257:Asus_TouchPad" {
     dwt enabled
     tap enabled
     tap_button_map lrm
+    pointer_accel 0.5
 }
 
-# Make trackpoint bearable
-input 2:10:TPPS/2_Elan_TrackPoint pointer_accel -0.1
+output eDP-1 bg ~/Wallpapers/wall.jpg stretch
 
-# Default seat configuration
-seat seat0 {
-    hide_cursor 3000
-}
+# start a terminal
+bindsym Mod4+Return exec "alacritty"
 
-## Key bindings
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec "light -A 10"
+bindsym XF86MonBrightnessDown exec "light -U 10"
 
-bindsym --to-code {
-    # start a terminal
-    $mod+Return exec $term
-    # kill focused window
-    $mod+Shift+q kill
+# Media volume controls
+bindsym XF86AudioMute exec "pamixer --toggle-mute"
+bindsym XF86AudioLowerVolume exec "pamixer -d 5"
+bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
 
-    # start your launcher
-    $mod+d exec $menu
-    $mod+p exec rofi-pass
+# kill focused window
+bindsym Mod4+Shift+q kill
 
-    # lock the screen
-    $mod+Delete exec swaylock -f
+# start rofi
+bindsym Mod4+d exec "rofi -show drun"
 
-    # reload the configuration file
-    $mod+Shift+c reload
+# desktop wallpaper
+exec_always "feh --bg-scale ~/Wallpapers/wall.jpg"
 
-    # exit sway (logs you out of your Wayland session)
-    $mod+Shift+e exec swaymsg exit
+# redshift
+# exec_always "redshift"
 
-    XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-    XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-    XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# keyboard layout
+exec_always "setxkbmap -model pc104 -layout us,ru,ua -variant ,, -option grp:alt_shift_toggle"
+# exec_always "~/.local/bin/layout"
 
-    # Printscreen
-    --release Print exec grim -g "$(slurp)" - | wl-copy -t image/png
+bindsym XF86TouchpadToggle exec "touchpad-toggle"
 
-    # Move your focus around
-    $mod+$left focus left
-    $mod+$down focus down
-    $mod+$up focus up
-    $mod+$right focus right
-    # or use $mod+[up|down|left|right]
-    $mod+Left focus left
-    $mod+Down focus down
-    $mod+Up focus up
-    $mod+Right focus right
+# USB mouse
+exec_always "xinput set-prop 'Logitech USB Receiver Mouse' 'libinput Accel Speed' 0.5"
 
-    # _move_ the focused window with the same, but add Shift
-    $mod+Shift+$left move left
-    $mod+Shift+$down move down
-    $mod+Shift+$up move up
-    $mod+Shift+$right move right
-    # ditto, with arrow keys
-    $mod+Shift+Left move left
-    $mod+Shift+Down move down
-    $mod+Shift+Up move up
-    $mod+Shift+Right move right
+# nm-applet
+# exec_always "nm-applet"
 
-    ## Workspaces:
+# making screenshots
+bindsym Mod4+Print exec "~/.local/bin/maim.sh"
+bindsym Mod4+Shift+Print exec "~/.local/bin/maim.sh -s"
 
-    # switch to workspace
-    $mod+Tab workspace back_and_forth
-    $mod+1 workspace 1
-    $mod+2 workspace 2
-    $mod+3 workspace 3
-    $mod+4 workspace 4
-    $mod+5 workspace 5
-    $mod+6 workspace 6
-    $mod+7 workspace 7
-    $mod+8 workspace 8
-    $mod+9 workspace 9
-    $mod+0 workspace 10
+# change focus
+bindsym Mod4+$left focus left
+bindsym Mod4+$down focus down
+bindsym Mod4+$up focus up
+bindsym Mod4+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
+
+# move focused window
+bindsym Mod4+Shift+$left move left
+bindsym Mod4+Shift+$down move down
+bindsym Mod4+Shift+$up move up
+bindsym Mod4+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
+
+# split in horizontal orientation
+bindsym Mod4+s split h
+
+# split in vertical orientation
+bindsym Mod4+v split v
+
+# enter fullscreen mode for the focused container
+bindsym Mod4+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+e layout toggle split
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym Mod4+space focus mode_toggle
+
+# focus the parent container
+bindsym Mod4+a focus parent
+
+# focus the child container
+#bindsym Mod4+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym Mod4+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym Mod4+minus scratchpad show
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym {
+    Mod4+1 workspace $ws1
+    Mod4+2 workspace $ws2
+    Mod4+3 workspace $ws3
+    Mod4+4 workspace $ws4
+    Mod4+5 workspace $ws5
+    Mod4+6 workspace $ws6
+    Mod4+7 workspace $ws7
+    Mod4+8 workspace $ws8
+    Mod4+9 workspace $ws9
+    Mod4+0 workspace $ws10
 
     # move focused container to workspace
-    $mod+Shift+1 move container to workspace 1
-    $mod+Shift+2 move container to workspace 2
-    $mod+Shift+3 move container to workspace 3
-    $mod+Shift+4 move container to workspace 4
-    $mod+Shift+5 move container to workspace 5
-    $mod+Shift+6 move container to workspace 6
-    $mod+Shift+7 move container to workspace 7
-    $mod+Shift+8 move container to workspace 8
-    $mod+Shift+9 move container to workspace 9
-    $mod+Shift+0 move container to workspace 10
+    Mod4+Shift+1 move container to workspace $ws1
+    Mod4+Shift+2 move container to workspace $ws2
+    Mod4+Shift+3 move container to workspace $ws3
+    Mod4+Shift+4 move container to workspace $ws4
+    Mod4+Shift+5 move container to workspace $ws5
+    Mod4+Shift+6 move container to workspace $ws6
+    Mod4+Shift+7 move container to workspace $ws7
+    Mod4+Shift+8 move container to workspace $ws8
+    Mod4+Shift+9 move container to workspace $ws9
+    Mod4+Shift+0 move container to workspace $ws10
 
-    $mod+Shift+w exec swaymsg -t get_outputs \
-      | jq '.[] \
-      | .name' \
-      | sed -n "1p;/`swaymsg -t get_outputs \
-      | jq '.[] \
-      | select(.focused==true) \
-      | .name'`/{n;p;}" \
-      | tail -n1 \
-      | xargs swaymsg move workspace to
+    # reload the configuration file
+    Mod4+Shift+c reload
 
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+    # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+    Mod4+Shift+r restart
 
-    ## Layout stuff:
+    # exit i3 (logs you out of your X session)
+    Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    $mod+b splith
-    $mod+v splitv
-
-    # Switch the current container between different layout styles
-    $mod+s layout stacking
-    $mod+w layout tabbed
-    $mod+e layout toggle split
-
-    # Keyboard layout
-    # FIXME: breaks everything
-    # --locked {
-    #     $mod+z input type:keyboard xkb_layout us
-    #     $mod+x input type:keyboard xkb_layout ru
-    #     $mod+c input type:keyboard xkb_layout ua
-    # }
-   
-    # Make the current focus fullscreen
-    $mod+f fullscreen
-
-    # Dismiss notification
-    $mod+m exec makoctl dismiss
-    $mod+Shift+m exec makoctl dismiss -a
-
-    # Toggle the current focus between tiling and floating mode
-    $mod+Shift+space floating toggle
-    $mod+Shift+z sticky toggle
-
-    # Swap focus between the tiling area and the floating area
-    $mod+space focus mode_toggle
-
-    # move focus to the parent container
-    $mod+a focus parent
-
-    ## Scratchpad:
-
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    $mod+minus scratchpad show
-
-    $mod+r mode "resize"
+    # switch to resize mode
+    Mod4+r mode "resize"
 }
 
+# resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym --to-code {
-        # left will shrink the containers width
-        # right will grow the containers width
-        # up will shrink the containers height
-        # down will grow the containers height
-        $left resize shrink width 10px
-        $down resize grow height 10px
-        $up resize shrink height 10px
-        $right resize grow width 10px
+    bindsym {
+        $left       resize shrink width 10 px or 10 ppt
+        $down       resize grow height 10 px or 10 ppt
+        $up         resize shrink height 10 px or 10 ppt
+        $right      resize grow width 10 px or 10 ppt
 
-        # ditto, with arrow keys
-        Left resize shrink width 10px
-        Down resize grow height 10px
-        Up resize shrink height 10px
-        Right resize grow width 10px
+        Left        resize shrink width 10 px or 10 ppt
+        Down        resize grow height 10 px or 10 ppt
+        Up          resize shrink height 10 px or 10 ppt
+        Right       resize grow width 10 px or 10 ppt
 
-        # return to default mode
         Return mode "default"
         Escape mode "default"
+        Mod4+r mode "default"
     }
+}
+
+exec_always --no-startup-id {
+    $HOME/.config/waybar/launch.sh
+    $HOME/.config/mako/launch.sh
+
+    swayidle -w \
+        timeout 300 'swaylock -f' \
+        timeout 600 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+        before-sleep 'swaylock -f'
 }

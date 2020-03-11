@@ -22,7 +22,7 @@ in {
   config = {
     environment.systemPackages = cfg.extraPackages;
 
-    users.users.brightone.extraGroups =
+    users.users.yevhens.extraGroups =
       optional cfg.addUserToDockerGroup "docker";
 
     virtualisation.docker.enable = true;

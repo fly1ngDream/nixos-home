@@ -11,7 +11,7 @@ let cfg = config.programs.crystal; in
     };
 
     extraPackages = mkOption {
-      default = with pkgs; [ crystal2nix icr scry ];
+      default = with pkgs; [ crystal2nix scry ];
       type = with types; listOf package;
     };
   };
