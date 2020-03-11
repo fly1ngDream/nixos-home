@@ -14,6 +14,9 @@
         withGTK3 = true;
         withGTK2 = false;
       });
+      steamWithLibs =
+        (steam.override { extraPkgs = pkgs: [ libjpeg openssl_1_0_2 ]; });
+      steam-run = (steamWithLibs.override { nativeOnly = true; }).run;
     in [
       # development
       ameba
@@ -78,6 +81,12 @@
       tdesktop
       # weechat
       # zoom-us
+
+      # gaming software
+      steamWithLibs
+      steam-run
+      wineFull
+      winetricks
 
       # monitoring
       inxi
