@@ -14,8 +14,8 @@ in {
         modules-left = [ "sway/workspaces" "sway/mode" "sway/window" ];
         modules-center = [ "clock" ];
         modules-right = [
-          "custom/keyboard"
           "pulseaudio"
+          "custom/keyboard"
           "network"
           "battery"
           "tray"
@@ -29,7 +29,7 @@ in {
           max-length = 50;
         };
         "custom/keyboard" = {
-          exec = "swaylayout --listen 1:1:AT_Translated_Set_2_keyboard";
+          exec = ".cargo/bin/swaylayout --listen 1:1:AT_Translated_Set_2_keyboard";
         };
         network = {
           tooltip = false;
