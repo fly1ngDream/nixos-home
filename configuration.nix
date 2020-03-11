@@ -55,7 +55,12 @@ fonts.fonts = with pkgs; [
 
 hardware.enableRedistributableFirmware = true;
 
-hardware.pulseaudio.enable = true;
+hardware.pulseaudio = {
+  enable = true;
+  extraModules = [ pkgs.pulseaudio-modules-bt ];
+  package = pkgs.pulseaudioFull;
+};
+
 sound.enable = true;
 
 hardware.pulseaudio.support32Bit = true;
@@ -108,6 +113,8 @@ services.xserver = {
   enable = true;
   displayManager.sddm.enable = true;
 };
+
+services.blueman.enable = true;
 
 time.timeZone = "Europe/Kiev";
 
