@@ -2,7 +2,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      background_opacity = 0.8;
+      background_opacity = 1;
       window.padding = {
         x = 2;
         y = 2;
