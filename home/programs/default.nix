@@ -22,7 +22,7 @@
     ./rofi-pass.nix
     ./rtv
     ./ruby.nix
-    # ./rust
+    ./rust
     ./scripts
     ./topgrade.nix
     ./waybar
