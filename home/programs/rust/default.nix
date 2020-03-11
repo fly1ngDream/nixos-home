@@ -7,7 +7,7 @@
     cargo-bloat
     cargo-deb
     cargo-deps
-    cargo-download
+    # cargo-download
     cargo-edit
     cargo-expand
     cargo-flamegraph
@@ -23,7 +23,7 @@
     cargo-sweep
     cargo-tree
     cargo-udeps
-    cargo-update
+    # cargo-update
     cargo-watch
     cargo-web
     cargo-xbuild
