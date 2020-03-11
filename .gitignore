@@ -1,2 +1,5 @@
 /host-configuration.nix
 /overrides.nix
+
+# SASS
+*.css.map
