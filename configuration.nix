@@ -18,7 +18,7 @@ imports = [
 
 boot.cleanTmpDir = true;
 
-boot.kernelPackages = pkgs.linuxPackages_latest;
+boot.kernelPackages = pkgs.linuxPackages_5_4;
 
 environment.pathsToLink = [ "share/zsh" ];
 
@@ -97,6 +97,8 @@ programs.ssh.startAgent = true;
 programs.thefuck.enable = true;
 
 programs.zsh.enable = false;
+
+programs.adb.enable = true;
 
 security.sudo.wheelNeedsPassword = false;
 

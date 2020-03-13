@@ -11,7 +11,7 @@
     users.yevhens = {
       isNormalUser = true;
       extraGroups =
-        [ "sudo" "wheel" ];
+        [ "sudo" "wheel" "adbusers" ];
       hashedPassword = "$1$Z7X9FGwu$fBYUonPaBwqVPr60VjFw0/";
       shell = pkgs.zsh;
     };
