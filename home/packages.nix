@@ -41,6 +41,7 @@
       shellcheck
       shfmt
       wakatime
+      openjdk8
       zig
       dart
       flutter
@@ -85,6 +86,7 @@
       tdesktop
       # weechat
       # zoom-us
+      thunderbird
 
       # gaming software
       steamWithLibs
