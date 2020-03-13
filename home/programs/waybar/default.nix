@@ -33,14 +33,14 @@ in {
         };
         network = {
           tooltip = false;
-          format-wifi = " {essid} ({signalStrength}%)";
+          format-wifi = " {essid}";
           format-ethernet = "{ifname}: {ipaddr}/{cidr}";
           format-linked = "{ifname} (No IP)";
           format-alt = "{ifname}: {ipaddr}";
           format-disconnected = "No internet";
         };
         battery = {
-          format = "{icon} {capacity}%";
+          format = "{icon} {capacity}";
           states = {
             warning = 30;
             critical = 15;
@@ -48,15 +48,15 @@ in {
           format-icons = [ "" "" "" "" ];
         };
         backlight = {
-          format = "{percent}% {icon}";
+          format = "{icon} {percent}";
           format-icons = [ "" "" "" ];
         };
         pulseaudio = {
           tooltip = false;
-          format = "{volume}% {icon}";
-          format-bluetooth = "{volume}% {icon}";
+          format = "{icon} {volume}";
+          format-bluetooth = "{icon} {volume}";
           format-muted = "";
-          format-source = "{volume}%";
+          format-source = "{volume}";
           format-source-muted = "";
           format-icons = {
             headphones = "";
