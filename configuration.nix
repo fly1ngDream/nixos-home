@@ -51,6 +51,8 @@ fonts.fonts = with pkgs; [
   iosevka
   material-icons
   powerline-fonts
+  roboto
+  roboto-mono
 ];
 
 hardware.enableRedistributableFirmware = true;
