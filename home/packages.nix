@@ -52,6 +52,9 @@
       nixpkgs-review
       patchelf
 
+      # web browsers
+      brave
+
       # documents
       gimp
       # gimp-with-plugins (broken)
