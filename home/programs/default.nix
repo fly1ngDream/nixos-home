@@ -16,13 +16,13 @@
     ./mpv.nix
     ./next.nix
     ./nodejs.nix
+    ./python.nix
     ./ranger
     ./ripgrep.nix
     ./rofi
     ./rofi-pass.nix
     ./rtv
     ./ruby.nix
-    ./python.nix
     ./rust
     ./scripts
     ./topgrade.nix
