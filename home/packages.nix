@@ -17,6 +17,8 @@
       steamWithLibs =
         (steam.override { extraPkgs = pkgs: [ libjpeg openssl_1_0_2 ]; });
       steam-run = (steamWithLibs.override { nativeOnly = true; }).run;
+      flutter = (import (builtins.fetchTarball
+        "https://github.com/babariviere/nixpkgs/archive/flutter-init.tar.gz") {}).flutter;
     in [
       # development
       ameba
@@ -40,6 +42,8 @@
       shfmt
       wakatime
       zig
+      dart
+      flutter
 
       # nix stuff
       nix-index
