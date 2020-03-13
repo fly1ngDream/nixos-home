@@ -22,6 +22,7 @@
     ./rofi-pass.nix
     ./rtv
     ./ruby.nix
+    ./python.nix
     ./rust
     ./scripts
     ./topgrade.nix

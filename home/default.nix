@@ -48,6 +48,12 @@
         provider = "nixpkgs";
         enableSolargraph = true;
       };
+      python = {
+        enable = true;
+        extraPackages = with pkgs.python3Packages; [ pip httpx ];
+        enableBuildLibs = true;
+        provider = "nixpkgs";
+      };
       topgrade = {
         enable = true;
         config = {
