@@ -14,7 +14,6 @@ floating_modifier Mod4
 
 focus_follows_mouse yes
 
-for_window [class="^.*"] border pixel 1
 client.focused #353439 #993399 #7B9F35 #993399 #993399
 
 # GAPS
@@ -22,7 +21,7 @@ gaps inner 5
 gaps outer 3
 smart_gaps on
 smart_borders on
-default_border pixel 3
+default_border pixel 1
 
 input type:keyboard {
     xkb_layout us,ru,ua
