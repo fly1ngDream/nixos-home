@@ -129,5 +129,6 @@
 
       # my stuff
       # swaylayout
+      translate-shell
     ];
 }
