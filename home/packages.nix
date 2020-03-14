@@ -45,6 +45,7 @@
       zig
       dart
       flutter
+      vscodium
 
       # nix stuff
       nix-index
