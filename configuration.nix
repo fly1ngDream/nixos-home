@@ -38,6 +38,7 @@ environment.systemPackages = with pkgs; [
   pciutils
   pmutils
   psmisc
+  unrar
   unzip
   vim
   wget
