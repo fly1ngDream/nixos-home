@@ -55,9 +55,9 @@ in {
           tooltip = false;
           format = "{icon} {volume}";
           format-bluetooth = "{icon} {volume}";
-          format-muted = "";
+          format-muted = "";
           format-source = "{volume}";
-          format-source-muted = "";
+          format-source-muted = "";
           format-icons = {
             headphones = "";
             handsfree = "";
@@ -65,7 +65,7 @@ in {
             phone = "";
             portable = "";
             car = "";
-            default = [ "" "" "" ];
+            default = [ "" "" "" ];
           };
           on-click = "pavucontrol";
         };
