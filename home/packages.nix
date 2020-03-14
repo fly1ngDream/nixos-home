@@ -28,6 +28,7 @@
       editorconfig-core-c
       elixir
       exercism
+      fd
       gdb
       gnome3.glade
       insomnia
@@ -38,6 +39,7 @@
       python3Packages.nvchecker
       python3
       ruby
+      sass
       shellcheck
       shfmt
       wakatime
