@@ -33,6 +33,7 @@ environment.systemPackages = with pkgs; [
   gnumake
   lsb-release
   ncdu
+  pamixer
   pavucontrol
   pciutils
   pmutils
