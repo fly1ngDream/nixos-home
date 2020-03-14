@@ -1,13 +1,25 @@
 # font
 font pango:Fira Code 10
 
-
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up k
 set $down j
 set $left h
 set $right l
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
@@ -37,114 +49,88 @@ input "2821:257:Asus_TouchPad" {
 
 output eDP-1 bg ~/Wallpapers/wall.jpg stretch
 
-# start a terminal
-bindsym Mod4+Return exec "alacritty"
+bindsym --to-code {
+    # start a terminal
+    Mod4+Return exec "alacritty"
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec "light -A 10"
-bindsym XF86MonBrightnessDown exec "light -U 10"
+    # Sreen brightness controls
+    XF86MonBrightnessUp exec "light -A 10"
+    XF86MonBrightnessDown exec "light -U 10"
 
-# Media volume controls
-bindsym XF86AudioMute exec "pamixer --toggle-mute"
-bindsym XF86AudioLowerVolume exec "pamixer -d 5"
-bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
+    # Media volume controls
+    XF86AudioMute exec "pamixer --toggle-mute"
+    XF86AudioLowerVolume exec "pamixer -d 5"
+    XF86AudioRaiseVolume exec "pamixer -i 5"
 
-# kill focused window
-bindsym Mod4+Shift+q kill
+    # kill focused window
+    Mod4+Shift+q kill
 
-# start rofi
-bindsym Mod4+d exec "rofi -show drun"
+    # start rofi
+    Mod4+d exec "rofi -show drun"
 
-# redshift
-# exec_always "redshift"
+    # Toggle touchpad
+    # XF86TouchpadToggle exec "touchpad-toggle"
+    # making screenshots
+    Mod4+Print exec "~/.local/bin/maim.sh"
+    Mod4+Shift+Print exec "~/.local/bin/maim.sh -s"
 
-# keyboard layout
-exec_always "setxkbmap -model pc104 -layout us,ru,ua -variant ,, -option grp:alt_shift_toggle"
-# exec_always "~/.local/bin/layout"
+    # change focus
+    Mod4+$left focus left
+    Mod4+$down focus down
+    Mod4+$up focus up
+    Mod4+$right focus right
 
-bindsym XF86TouchpadToggle exec "touchpad-toggle"
+    # alternatively, you can use the cursor keys:
+    Mod4+Left focus left
+    Mod4+Down focus down
+    Mod4+Up focus up
+    Mod4+Right focus right
 
-# USB mouse
-exec_always "xinput set-prop 'Logitech USB Receiver Mouse' 'libinput Accel Speed' 0.5"
+    # move focused window
+    Mod4+Shift+$left move left
+    Mod4+Shift+$down move down
+    Mod4+Shift+$up move up
+    Mod4+Shift+$right move right
 
-# nm-applet
-# exec_always "nm-applet"
+    # alternatively, you can use the cursor keys:
+    Mod4+Shift+Left move left
+    Mod4+Shift+Down move down
+    Mod4+Shift+Up move up
+    Mod4+Shift+Right move right
 
-# making screenshots
-bindsym Mod4+Print exec "~/.local/bin/maim.sh"
-bindsym Mod4+Shift+Print exec "~/.local/bin/maim.sh -s"
+    # split in horizontal orientation
+    Mod4+s split h
 
-# change focus
-bindsym Mod4+$left focus left
-bindsym Mod4+$down focus down
-bindsym Mod4+$up focus up
-bindsym Mod4+$right focus right
+    # split in vertical orientation
+    Mod4+v split v
 
-# alternatively, you can use the cursor keys:
-bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-bindsym Mod4+Right focus right
+    # enter fullscreen mode for the focused container
+    Mod4+f fullscreen toggle
 
-# move focused window
-bindsym Mod4+Shift+$left move left
-bindsym Mod4+Shift+$down move down
-bindsym Mod4+Shift+$up move up
-bindsym Mod4+Shift+$right move right
+    # change container layout (stacked, tabbed, toggle split)
+    # bindsym --to-code Mod4+s layout stacking
+    Mod4+w layout tabbed
+    Mod4+e layout toggle split
 
-# alternatively, you can use the cursor keys:
-bindsym Mod4+Shift+Left move left
-bindsym Mod4+Shift+Down move down
-bindsym Mod4+Shift+Up move up
-bindsym Mod4+Shift+Right move right
+    # toggle tiling / floating
+    Mod4+Shift+space floating toggle
 
-# split in horizontal orientation
-bindsym Mod4+s split h
+    # change focus between tiling / floating windows
+    Mod4+space focus mode_toggle
 
-# split in vertical orientation
-bindsym Mod4+v split v
+    # focus the parent container
+    Mod4+a focus parent
 
-# enter fullscreen mode for the focused container
-bindsym Mod4+f fullscreen toggle
+    # focus the child container
+    #bindsym --to-code Mod4+d focus child
 
-# change container layout (stacked, tabbed, toggle split)
-# bindsym Mod4+s layout stacking
-bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout toggle split
+    # move the currently focused window to the scratchpad
+    Mod4+Shift+minus move scratchpad
 
-# toggle tiling / floating
-bindsym Mod4+Shift+space floating toggle
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    Mod4+minus scratchpad show
 
-# change focus between tiling / floating windows
-bindsym Mod4+space focus mode_toggle
-
-# focus the parent container
-bindsym Mod4+a focus parent
-
-# focus the child container
-#bindsym Mod4+d focus child
-
-# move the currently focused window to the scratchpad
-bindsym Mod4+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym Mod4+minus scratchpad show
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
-bindsym {
     Mod4+1 workspace $ws1
     Mod4+2 workspace $ws2
     Mod4+3 workspace $ws3
@@ -171,19 +157,13 @@ bindsym {
     # reload the configuration file
     Mod4+Shift+c reload
 
-    # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-    Mod4+Shift+r restart
-
-    # exit i3 (logs you out of your X session)
-    Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
     # switch to resize mode
     Mod4+r mode "resize"
 }
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym {
+    bindsym --to-code {
         $left       resize shrink width 10 px or 10 ppt
         $down       resize grow height 10 px or 10 ppt
         $up         resize shrink height 10 px or 10 ppt
@@ -201,7 +181,14 @@ mode "resize" {
 }
 
 exec_always --no-startup-id {
+    # keyboard layout
+    "setxkbmap -model pc104 -layout us,ru,ua -variant ,, -option grp:alt_shift_toggle"
+
+    # USB mouse
+    exec_always "xinput set-prop 'Logitech USB Receiver Mouse' 'libinput Accel Speed' 0.5"
+
     $HOME/.config/waybar/launch.sh
+
     $HOME/.config/mako/launch.sh
 
     swayidle -w \
@@ -209,4 +196,8 @@ exec_always --no-startup-id {
         timeout 600 'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
         before-sleep 'swaylock -f'
+
+    # "redshift"
+
+    # "nm-applet"
 }
