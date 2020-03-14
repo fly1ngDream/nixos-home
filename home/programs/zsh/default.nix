@@ -7,6 +7,7 @@
 
   home.file.".zpreztorc".source = ./zpreztorc;
   home.file.".zsh_completions".source = ./completions;
+  home.file.".p10k-pure.zsh".source = ./p10k-pure.zsh;
 
   programs.zsh = {
     enable = true;
@@ -18,6 +19,9 @@
     '';
     envExtra = ''
       fpath+=$HOME/.zsh_completions
+    '';
+    initExtra = ''
+       source ~/.p10k-pure.zsh
     '';
     oh-my-zsh = {
       enable = true;
