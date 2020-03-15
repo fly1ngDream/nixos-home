@@ -42,7 +42,7 @@ in {
         up = "pull --rebase --autostash";
       };
       signing = {
-        key = "F5493B7F93725578FDD3D0B8A1BC8428323ECFE8";
+        key = "E3285766711DB4BC";
         signByDefault = true;
       };
       userName = "Yevhen Shymotyuk";
