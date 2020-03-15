@@ -52,7 +52,7 @@ in {
           wl-clipboard # clipboard CLI utilities
           # wmctrl
           # wtype # xdotool, but for wayland (TODO broken)
-          xdg-desktop-portal-wlr # xdg-desktop-portal backend for wlroots
+          # xdg-desktop-portal-wlr # xdg-desktop-portal backend for wlroots
           ydotool # xdotool for wayland
         ] ++ (optional cfg.enableXwayland xwayland)
         ++ (optional cfg.enableQtwayland qt5.qtwayland);
