@@ -73,7 +73,10 @@ sound.mediaKeys.enable = true;
 
 hardware.squashfs.enable = true;
 
-hardware.opengl.driSupport32Bit = true;
+hardware.opengl = {
+  driSupport = true;
+  driSupport32Bit = true;
+};
 
 networking.networkmanager.enable = true;
 
