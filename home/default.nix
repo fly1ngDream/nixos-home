@@ -50,7 +50,7 @@
       };
       python = {
         enable = true;
-        extraPackages = with pkgs.python3Packages; [ pip httpx ];
+        extraPackages = with pkgs.python3Packages; [ pip ipython httpx ];
         enableBuildLibs = true;
         provider = "nixpkgs";
       };
