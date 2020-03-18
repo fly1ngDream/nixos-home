@@ -24,6 +24,7 @@ environment.pathsToLink = [ "share/zsh" ];
 
 environment.systemPackages = with pkgs; [
   acl
+  acpi
   bash
   binutils
   file
