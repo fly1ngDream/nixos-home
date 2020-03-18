@@ -1,16 +1,19 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-
 let
   cfg = config.programs.python;
   python = pkgs.python3;
   pythonPackages = pkgs.python3Packages;
+  myPythonPackages = pythonPackages: with pythonPackages; [
+    pylint-django
+  ];
+  pythonWithMyPackages = python.withPackages myPythonPackages;
 in {
   options.programs.python = {
     enable = mkEnableOption "Python language support";
     extraPackages = mkOption {
-      default = with pythonPackages; [ requests pip ];
+      default = with pythonPackages; [];
       type = with types; listOf package;
     };
     enableBuildLibs = mkEnableOption "build libraries for Python";
@@ -23,9 +26,9 @@ in {
 
   config = mkIf cfg.enable {
     programs.python.extraPackages = mkIf cfg.enableBuildLibs
-      (with pkgs; [ sqlite ]);
+      (with pkgs; [ sqlite zlib ]);
 
     home.packages = with pkgs;
-      (optional (cfg.provider == "nixpkgs") python) ++ cfg.extraPackages;
+      (optional (cfg.provider == "nixpkgs") pythonWithMyPackages) ++ cfg.extraPackages;
   };
 }

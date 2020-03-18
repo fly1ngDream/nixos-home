@@ -55,8 +55,8 @@
           pip
           ipython
           poetry
-          pylint
-          pylint-django
+          grip
+          nvchecker
         ];
         enableBuildLibs = true;
         provider = "nixpkgs";

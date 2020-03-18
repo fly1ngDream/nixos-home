@@ -36,8 +36,6 @@
       lua
       nasm
       nim
-      python3Packages.nvchecker
-      python3
       ruby
       sass
       shellcheck
@@ -64,7 +62,6 @@
       graphviz
       libreoffice-fresh
       pandoc
-      python3Packages.grip
 
       # other ART (Awesome Rust Tools)
       exa
