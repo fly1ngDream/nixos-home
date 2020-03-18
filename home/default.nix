@@ -50,7 +50,7 @@
       };
       python = {
         enable = true;
-        extraPackages = with pkgs.python3Packages; [ pip ipython httpx ];
+        extraPackages = with pkgs.python3Packages; [ pip ipython poetry pyenv ];
         enableBuildLibs = true;
         provider = "nixpkgs";
       };
