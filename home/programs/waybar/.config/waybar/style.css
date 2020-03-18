@@ -57,7 +57,7 @@ window#waybar {
   margin: 0 4px;
   color: #e57375; }
   #battery.charging, #battery.plugged {
-    color: #ee82ee; }
+    color: #ca00ff; }
   #battery.good:not(.charging) {
     color: #3cb371; }
   #battery.warning:not(.charging) {
