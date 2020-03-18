@@ -19,9 +19,15 @@
     '';
     envExtra = ''
       fpath+=$HOME/.zsh_completions
+
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH="$PYENV_ROOT/bin:$PATH"
     '';
     initExtra = ''
-       source ~/.p10k-pure.zsh
+      source ~/.p10k-pure.zsh
+      if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init -)"
+      fi
     '';
     oh-my-zsh = {
       enable = true;
