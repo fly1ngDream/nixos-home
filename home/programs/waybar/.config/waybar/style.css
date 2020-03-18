@@ -2,7 +2,7 @@
   padding: 0 10px;
   margin: 0 4px;
   color: #ffffff;
-  border-bottom: 3px solid #E57375; }
+  border-bottom: 3px solid #e57375; }
 
 * {
   border: none;
@@ -20,7 +20,7 @@ window#waybar {
   window#waybar.hidden {
     opacity: 0.2; }
   window#waybar.termite {
-    background-color: #3F3F3F; }
+    background-color: #3f3f3f; }
   window#waybar.chromium {
     background-color: #000000;
     border: none; }
@@ -35,7 +35,7 @@ window#waybar {
     box-shadow: inherit;
     border-bottom: 3px solid #ffffff; }
   #workspaces button.focused {
-    border-bottom: 3px solid #E57375; }
+    border-bottom: 3px solid #e57375; }
   #workspaces button.urgent {
     background-color: #eb4d4b; }
 
@@ -55,17 +55,15 @@ window#waybar {
 #battery {
   padding: 0 10px;
   margin: 0 4px;
-  color: #E57375; }
+  color: #e57375; }
   #battery.charging, #battery.plugged {
-    color: #26A65B; }
+    color: #ee82ee; }
+  #battery.good:not(.charging) {
+    color: #3cb371; }
+  #battery.warning:not(.charging) {
+    color: #ffa500; }
   #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate; }
+    color: #ffffff; }
 
 label:focus {
   background-color: #000000; }
@@ -74,11 +72,11 @@ label:focus {
   background-color: #90b1b1; }
 
 #network.disconnected {
-  color: #E57375;
+  color: #e57375;
   border-bottom: 0; }
 
 #pulseaudio.muted {
-  color: #E57375;
+  color: #e57375;
   border-bottom: 0; }
 
 #tray {

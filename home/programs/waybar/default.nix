@@ -42,6 +42,7 @@ in {
         battery = {
           format = "{icon} {capacity}";
           states = {
+            good = 80;
             warning = 30;
             critical = 15;
           };

@@ -1,8 +1,11 @@
 $font-stack: "Roboto Mono", "Material Icons", "Font Awesome"
 $primary-color: #ffffff
-$secondary-color: #E57375
+$secondary-color: #e57375
 $background-color: rgba(43, 48, 59, 1)
 $border-color: rgba(100, 114, 125, 1)
+$battery-plugged: #ee82ee
+$battery-good: #3cb371
+$battery-warning: #ffa500
 
 %module-shared
     padding: 0 10px
@@ -31,7 +34,7 @@ window
             opacity: 0.2
 
         &.termite
-            background-color: #3F3F3F
+            background-color: #3f3f3f
 
         &.chromium
             background-color: #000000
@@ -84,16 +87,16 @@ window
 
     &.charging,
     &.plugged
-        color: #26A65B
+        color: $battery-plugged
+
+    &.good:not(.charging)
+        color: $battery-good
+
+    &.warning:not(.charging)
+        color: $battery-warning
 
     &.critical:not(.charging)
-        background-color: #f53c3c
         color: $primary-color
-        animation-name: blink
-        animation-duration: 0.5s
-        animation-timing-function: linear
-        animation-iteration-count: infinite
-        animation-direction: alternate
 
 
 label
