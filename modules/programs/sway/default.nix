@@ -64,6 +64,7 @@ in {
       xdg.configFile."i3statusbar.toml".source = ./.config/i3statusbar.toml;
       xdg.configFile."kanshi/config".source = ./.config/kanshi/config;
       xdg.configFile."mako/launch.sh".source = ./.config/mako/launch.sh;
+      xdg.configFile."swayidle/launch.sh".source = ./.config/swayidle/launch.sh;
     };
   };
 }
