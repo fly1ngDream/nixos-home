@@ -16,6 +16,7 @@
     ./mpv.nix
     ./next.nix
     ./nodejs.nix
+    ./pylint
     ./python.nix
     ./ranger
     ./ripgrep.nix

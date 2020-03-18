@@ -48,9 +48,16 @@
         provider = "nixpkgs";
         enableSolargraph = true;
       };
+      pylint.enable = true;
       python = {
         enable = true;
-        extraPackages = with pkgs.python3Packages; [ pip ipython poetry ];
+        extraPackages = with pkgs.python3Packages; [
+          pip
+          ipython
+          poetry
+          pylint
+          pylint-django
+        ];
         enableBuildLibs = true;
         provider = "nixpkgs";
       };
@@ -66,7 +73,6 @@
 
     services = {
       lorri.enable = true;
-
     };
   };
 }
