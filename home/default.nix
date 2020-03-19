@@ -57,6 +57,7 @@
           poetry
           grip
           nvchecker
+          mypy
         ];
         enableBuildLibs = true;
         provider = "nixpkgs";
