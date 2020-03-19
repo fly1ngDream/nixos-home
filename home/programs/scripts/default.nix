@@ -7,4 +7,10 @@
     source = ./bin;
     recursive = true;
   };
+
+  programs.zsh = {
+    envExtra = ''
+      export PATH="$HOME/bin:$PATH"
+    '';
+  };
 }
