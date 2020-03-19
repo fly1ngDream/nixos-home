@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+SHRUG="¯\_(ツ)_/¯"
+
+case "$XDG_SESSION_TYPE" in
+    x11)
+        echo "$SHRUG" | xclip -selection clipboard;;
+    wayland)
+        echo "$SHRUG" | wl-copy
+esac
