@@ -71,8 +71,8 @@ bindsym --to-code {
     # Toggle touchpad
     # XF86TouchpadToggle exec "touchpad-toggle"
     # making screenshots
-    Mod4+Print exec "~/.local/bin/maim.sh"
-    Mod4+Shift+Print exec "~/.local/bin/maim.sh -s"
+    Mod4+Print exec "~/bin/maim.sh"
+    Mod4+Shift+Print exec "~/bin/maim.sh -s"
 
     # change focus
     Mod4+$left focus left
