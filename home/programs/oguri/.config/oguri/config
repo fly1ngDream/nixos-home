@@ -1,0 +1,5 @@
+[output eDP-1]
+image=/home/yevhens/Wallpapers/wall.gif
+filter=nearest
+scaling-mode=fill
+anchor=center

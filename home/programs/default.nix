@@ -17,6 +17,7 @@
     ./mpv.nix
     ./next.nix
     ./nodejs.nix
+    ./oguri
     ./pylint
     ./python.nix
     ./ranger
@@ -50,6 +51,7 @@
     htop.enable = true;
     jq.enable = true;
     kakoune.enable = true;
+    oguri.enable = false;
     skim.enable = true;
     starship = {
       enable = true;
