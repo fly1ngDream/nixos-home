@@ -14,6 +14,7 @@ in {
         modules-left = [ "sway/workspaces" "sway/mode" "sway/window" ];
         modules-center = [ "clock" ];
         modules-right = [
+          "backlight"
           "pulseaudio"
           "custom/keyboard"
           "network"

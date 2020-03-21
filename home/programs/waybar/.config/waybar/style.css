@@ -68,9 +68,6 @@ window#waybar {
 label:focus {
   background-color: #000000; }
 
-#backlight {
-  background-color: #90b1b1; }
-
 #network.disconnected {
   color: #e57375;
   border-bottom: 0; }
