@@ -15,7 +15,7 @@
     autocd = true;
     loginExtra = ''
       ssh-add -D
-      ssh-add $HOME/.ssh/{blackbird,id_rsa}
+      ssh-add $HOME/.ssh/{id_rsa}
     '';
     envExtra = ''
       fpath+=$HOME/.zsh_completions
