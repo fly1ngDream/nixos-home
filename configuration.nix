@@ -16,9 +16,10 @@ imports = [
   # ./overrides.nix
 ];
 
-boot.cleanTmpDir = true;
-
-boot.kernelPackages = pkgs.linuxPackages_5_4;
+boot = {
+  cleanTmpDir = true;
+  kernelPackages = pkgs.linuxPackages_5_4;
+};
 
 environment.pathsToLink = [ "share/zsh" ];
 
@@ -58,74 +59,68 @@ fonts.fonts = with pkgs; [
   roboto-mono
 ];
 
-hardware.enableRedistributableFirmware = true;
+hardware = {
+  enableRedistributableFirmware = true;
+  pulseaudio = {
+    enable = true;
+    support32Bit = true;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+    package = pkgs.pulseaudioFull;
+  };
+};
 
-hardware.pulseaudio = {
+sound = {
   enable = true;
-  support32Bit = true;
-  extraModules = [ pkgs.pulseaudio-modules-bt ];
-  package = pkgs.pulseaudioFull;
+  mediaKeys.enable = true;
 };
 
-sound.enable = true;
-
-sound.mediaKeys.enable = true;
-
-hardware.squashfs.enable = true;
-
-hardware.opengl = {
-  driSupport = true;
-  driSupport32Bit = true;
+hardware = {
+  squashfs.enable = true;
+  opengl = {
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 };
 
-networking.networkmanager.enable = true;
-
-networking.firewall.enable = false;
-
-programs.cachix = {
-  enable = true;
-  # packagesToCache = [ ];
+networking = {
+  networkmanager.enable = true;
+  firewall.enable = false;
 };
 
-programs.dconf.enable = true;
-
-programs.gnupg.agent.enable = true;
-
-programs.iotop.enable = true;
-
-programs.mosh.enable = true;
-
-programs.mtr.enable = true;
-
-programs.ssh.startAgent = true;
-
-programs.thefuck.enable = true;
-
-programs.zsh.enable = false;
-
-programs.adb.enable = true;
-
-programs.light.enable = true;
+programs = {
+  cachix = {
+    enable = true;
+    # packagesToCache = [ ];
+  };
+  dconf.enable = true;
+  gnupg.agent.enable = true;
+  iotop.enable = true;
+  mosh.enable = true;
+  mtr.enable = true;
+  ssh.startAgent = true;
+  thefuck.enable = true;
+  zsh.enable = false;
+  adb.enable = true;
+  light.enable = true;
+};
 
 security.sudo.wheelNeedsPassword = false;
 
-services.dbus.packages = [ pkgs.gnome3.dconf ];
-
-services.flatpak.enable = true;
+services = {
+  dbus.packages = [ pkgs.gnome3.dconf ];
+  flatpak.enable = true;
+  geoclue2.enable = true;
+  xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+  };
+  blueman.enable = true;
+};
 
 xdg.portal = {
   enable = true;
   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 };
-
-services.geoclue2.enable = true;
-
-services.xserver = {
-  enable = true;
-  displayManager.sddm.enable = true;
-};
-
-services.blueman.enable = true;
 
 systemd.services.bluetooth.serviceConfig.ExecStart = [
   ""
