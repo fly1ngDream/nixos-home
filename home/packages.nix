@@ -27,6 +27,7 @@
       crystal
       editorconfig-core-c
       elixir
+      erlang
       exercism
       fd
       gdb
