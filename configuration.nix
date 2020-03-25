@@ -25,7 +25,6 @@ environment.pathsToLink = [ "share/zsh" ];
 environment.systemPackages = with pkgs; [
   acl
   acpi
-  acpilight
   bash
   binutils
   file
@@ -105,6 +104,8 @@ programs.thefuck.enable = true;
 programs.zsh.enable = false;
 
 programs.adb.enable = true;
+
+programs.light.enable = true;
 
 security.sudo.wheelNeedsPassword = false;
 

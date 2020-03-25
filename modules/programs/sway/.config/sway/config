@@ -54,8 +54,8 @@ bindsym --to-code {
     Mod4+Return exec "alacritty"
 
     # Sreen brightness controls
-    XF86MonBrightnessUp exec "xbacklight -inc 10"
-    XF86MonBrightnessDown exec "xbacklight -dec 10"
+    XF86MonBrightnessUp exec "light -A 10"
+    XF86MonBrightnessDown exec "light -U 10"
 
     # Media volume controls
     XF86AudioMute exec "pamixer --toggle-mute"
