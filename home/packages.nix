@@ -87,10 +87,10 @@
       # communication
       discord
       riot-desktop
-      # slack
+      slack
       tdesktop
       # weechat
-      # zoom-us
+      zoom-us
       thunderbird
 
       # gaming software
