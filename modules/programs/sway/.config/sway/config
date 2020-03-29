@@ -191,7 +191,7 @@ exec_always --no-startup-id {
 
     $HOME/.config/mako/launch.sh
 
-    $HOME/.config/swayidle/launch.sh
+    # $HOME/.config/swayidle/launch.sh
 
     # "redshift"
 

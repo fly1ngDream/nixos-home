@@ -37,6 +37,7 @@
       lua
       nasm
       nim
+      openmpi
       ruby
       sass
       shellcheck
