@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./forgit.nix ];
+  # imports = [ ./forgit.nix ];
 
   home.packages = with pkgs; [ zsh-completions ];
 
@@ -59,6 +59,7 @@
     shellAliases = {
       ls = "exa --group-directories-first";
       cdr = "cd $(git rev-parse --show-toplevel)";
+      grep = "rg";
     };
   };
 }
