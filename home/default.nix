@@ -58,6 +58,7 @@
           grip
           nvchecker
           mypy
+          python-language-server
         ];
         enableBuildLibs = true;
         provider = "nixpkgs";
