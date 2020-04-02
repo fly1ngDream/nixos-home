@@ -18,18 +18,20 @@
         (steam.override { extraPkgs = pkgs: [ libjpeg openssl_1_0_2 ]; });
       steam-run = (steamWithLibs.override { nativeOnly = true; }).run;
       flutter = (import (builtins.fetchTarball
-        "https://github.com/babariviere/nixpkgs/archive/flutter-init.tar.gz") {}).flutter;
+        "https://github.com/babariviere/nixpkgs/archive/flutter-testing.tar.gz") {}).flutterPackages.stable;
     in [
       # development
       ameba
       ccls
       clang-tools
       crystal
+      dart
       editorconfig-core-c
       elixir
       erlang
       exercism
       fd
+      flutter
       gdb
       gnome3.glade
       insomnia
@@ -45,8 +47,6 @@
       wakatime
       openjdk8
       zig
-      dart
-      flutter
       vscodium
 
       # nix stuff
