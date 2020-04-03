@@ -17,8 +17,11 @@
       steamWithLibs =
         (steam.override { extraPkgs = pkgs: [ libjpeg openssl_1_0_2 ]; });
       steam-run = (steamWithLibs.override { nativeOnly = true; }).run;
-      flutter = (import (builtins.fetchTarball
-        "https://github.com/babariviere/nixpkgs/archive/flutter-testing.tar.gz") {}).flutterPackages.stable;
+
+      nixpkgsMaster = (import (builtins.fetchTarball
+        "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {});
+      flutter = nixpkgsMaster.flutterPackages.stable;
+      tdesktop = nixpkgsMaster.tdesktop;
     in [
       # development
       ameba
@@ -33,6 +36,7 @@
       fd
       flutter
       gdb
+      gitAndTools.gh
       gnome3.glade
       insomnia
       ix
