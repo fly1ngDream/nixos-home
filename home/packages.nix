@@ -31,18 +31,22 @@
       dart
       editorconfig-core-c
       elixir
+      elmPackages.elm
+      elmPackages.elm-language-server
       erlang
       exercism
       fd
       flutter
       gdb
       gitAndTools.gh
+      ghc
       gnome3.glade
       insomnia
       ix
       lua
       nasm
       nim
+      nodePackages.live-server
       openmpi
       ruby
       sass
