@@ -54,7 +54,7 @@ in {
           "diff-so-fancy | less --tabs=4 -RFX"
         else
           null;
-        github.user = "fly1ngdream";
+        github.user = "yevhenshymotiuk";
       };
     };
   };
