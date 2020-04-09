@@ -42,6 +42,7 @@
         enable = true;
         yarn.enable = true;
       };
+      prettier.enable = true;
       ruby = {
         enable = false;
         enableBuildLibs = true;

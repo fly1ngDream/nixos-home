@@ -47,6 +47,7 @@
       nasm
       nim
       nodePackages.live-server
+      nodePackages.prettier
       openmpi
       ruby
       sass

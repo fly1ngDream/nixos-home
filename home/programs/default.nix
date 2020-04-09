@@ -18,6 +18,7 @@
     ./next.nix
     ./nodejs.nix
     ./oguri
+    ./prettier
     ./pylint
     ./python.nix
     ./ranger
