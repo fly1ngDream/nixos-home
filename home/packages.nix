@@ -17,11 +17,7 @@
       steamWithLibs =
         (steam.override { extraPkgs = pkgs: [ libjpeg openssl_1_0_2 ]; });
       steam-run = (steamWithLibs.override { nativeOnly = true; }).run;
-
-      nixpkgsMaster = (import (builtins.fetchTarball
-        "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {});
-      flutter = nixpkgsMaster.flutterPackages.stable;
-      tdesktop = nixpkgsMaster.tdesktop;
+      flutter = flutterPackages.stable;
     in [
       # development
       ameba
@@ -98,6 +94,7 @@
       riot-desktop
       slack
       tdesktop
+      teams
       # weechat
       zoom-us
       thunderbird
