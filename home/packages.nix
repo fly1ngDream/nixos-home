@@ -22,6 +22,7 @@
       # development
       ameba
       ccls
+      chromedriver
       clang-tools
       crystal
       dart
