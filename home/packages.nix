@@ -38,6 +38,7 @@
       gitAndTools.gh
       ghc
       gnome3.glade
+      inotify-tools
       insomnia
       ix
       lua
@@ -46,6 +47,7 @@
       nodePackages.live-server
       nodePackages.prettier
       openmpi
+      redis
       ruby
       sass
       shellcheck

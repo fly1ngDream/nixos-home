@@ -11,5 +11,6 @@
   services = {
     docker.enable = true;
     mysql.enable = true;
+    postgresql.enable = true;
   };
 }

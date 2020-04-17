@@ -3,7 +3,7 @@
 ;; Place your private configuration here
 
 ;; Font
-(setq doom-font (font-spec :family "Fira Code" :size 15))
+(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 15))
 
 
 ;; Theme
@@ -187,5 +187,4 @@
 
 ;; (setq +pretty-code-symbols nil)
 
-(add-hook 'rustic-mode-hook 'rust-mode)
-(add-hook 'rust-mode-hook 'lsp)
+(setq lsp-dart-sdk-dir "/nix/store/w114n09zpyjy6dnry7mghwyiiz407d68-dart-2.7.1")
