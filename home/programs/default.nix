@@ -55,7 +55,7 @@
     oguri.enable = false;
     skim.enable = true;
     starship = {
-      enable = true;
+      enable = false;
       settings = { };
     };
     vim.enable = true;
