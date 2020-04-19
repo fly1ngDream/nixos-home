@@ -188,3 +188,5 @@
 ;; (setq +pretty-code-symbols nil)
 
 (setq lsp-dart-sdk-dir "/nix/store/w114n09zpyjy6dnry7mghwyiiz407d68-dart-2.7.1")
+
+(add-to-list 'exec-path (concat (getenv "HOME") "/dev/elixir/elixir-ls/release"))
