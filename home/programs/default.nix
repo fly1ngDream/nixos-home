@@ -4,6 +4,7 @@
     ./asdf.nix
     ./aspell.nix
     ./beets.nix
+    ./black
     ./borgbackup.nix
     ./cmus
     ./crystal.nix

@@ -60,6 +60,7 @@
       ls = "exa --group-directories-first";
       cdr = "cd $(git rev-parse --show-toplevel)";
       grep = "rg";
+      black="black --config=$HOME/.config/black/pyproject.toml";
     };
   };
 }

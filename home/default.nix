@@ -28,6 +28,7 @@
 
     programs = {
       asdf.enable = false;
+      black.enable = true;
       crystal.enable = false;
       emacs = {
         enable = true;
@@ -60,6 +61,7 @@
           nvchecker
           mypy
           python-language-server
+          black
         ];
         enableBuildLibs = true;
         provider = "nixpkgs";
