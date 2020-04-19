@@ -62,6 +62,7 @@
           mypy
           python-language-server
           black
+          codecov
         ];
         enableBuildLibs = true;
         provider = "nixpkgs";
