@@ -1,13 +1,18 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here
-
 ;; Font
 (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 15))
 
 
 ;; Theme
 (setq doom-theme 'doom-peacock)
+
+(after! doom-themes
+  (setq doom-modeline-major-mode-icon t))
+
+(setq evil-normal-state-cursor '(box "DarkGoldenrod1")
+      evil-insert-state-cursor '(bar "DarkGoldenrod1")
+      evil-visual-state-cursor '(hollow "DarkGoldenrod1"))
 
 
 ;; evil-escape-key-sequence
@@ -16,13 +21,9 @@
 
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html.eex\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
-(setq web-mode-enable-auto-pairing nil)
+(after! web-mode
+  (setq web-mode-enable-auto-pairing nil))
 
 (sp-with-modes '(web-mode)
   (sp-local-pair "%" "%" :post-handlers '(("| " "SPC")))
@@ -50,23 +51,6 @@
           "TAB" 'company-complete-selection)))
 
 
-;; cursor
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(cursor ((t (:background "DarkGoldenrod1")))))
-
-
-;; dart-mode
-;; (map! (:after dart-mode
-;;         (:map dart-mode-map
-;;           "TAB" 'dart-expand)))
-
-;; (sp-local-pair 'dart-mode "<" ">")
-
-
 ;; Org-Latex
 (setq org-latex-packages-alist
       '(("AUTO" "babel" t)
@@ -75,38 +59,37 @@
 
 ;; term
 (defun current-directory()
-    "Returns current directory"
-    (file-name-directory (buffer-file-name)))
+  "Returns current directory"
+  (file-name-directory (buffer-file-name)))
 
 (defun term-send-cd()
-    (term-send-string
-        (get-buffer-process "*terminal*")
-        (format "cd %s\n%s\n" (current-directory) "clear")))
+  (term-send-string
+    (get-buffer-process "*terminal*")
+    (format "cd %s\n%s\n" (current-directory) "clear")))
 
 (defun open-terminal()
-    "Opens terminal in a new window"
-    (interactive)
-    (cond
-        ((not (get-buffer-window "*terminal*"))
-        (progn
-            (pop-to-buffer (save-window-excursion (+term/here)))
-            (evil-window-set-height 15)))
+  "Opens terminal in a new window"
+  (interactive)
+  (cond
+   ((not (get-buffer-window "*terminal*"))
+    (progn
+      (pop-to-buffer (save-window-excursion (+term/here))
+                     (evil-window-set-height 15)))
 
-        (t (progn
-                (term-send-cd)
-                (select-window (get-buffer-window "*terminal*"))))))
+    (t (progn
+         (term-send-cd)
+         (select-window (get-buffer-window "*terminal*")))))))
 
 (defun open-popup-terminal()
-    (interactive)
-    (+term/toggle t)
-    (evil-window-set-height 15))
+  (interactive)
+  (+term/toggle t)
+  (evil-window-set-height 15))
 
 
 ;; Trello
 (defun org-trello-sync-buffer-from-trello()
-    (interactive)
-    (org-trello-sync-buffer t))
-
+  (interactive)
+  (org-trello-sync-buffer t))
 
 
 ;; <leader>
@@ -140,9 +123,9 @@
 (setq org-agenda-custom-commands
       '(("c" "Custom agenda view"
          ((agenda ""
-            ((org-agenda-overriding-header "Today's agenda")
-             (org-agenda-start-day "4d")
-             (org-agenda-span 1)))
+                  ((org-agenda-overriding-header "Today's agenda")
+                   (org-agenda-start-day "4d")
+                   (org-agenda-span 1)))
           (agenda "" ((org-agenda-overriding-header "10 days' agenda")))
           (alltodo "" ((org-agenda-overriding-header "All tasks")))))))
 
@@ -164,29 +147,37 @@
 
 
 ;; plantuml
-(setq org-plantuml-jar-path (expand-file-name "/usr/share/java/plantuml/plantuml.jar"))
+(setq org-plantuml-jar-path
+      (expand-file-name "/usr/share/java/plantuml/plantuml.jar"))
 
 
 ;; mu4e
 ;; (after! mu4e
-;;   (setq mu4e-get-mail-command "/home/yevhens/.local/bin/offlineimap.sh")
-;;   (setq mu4e-update-interval 300))
+;;   (setq mu4e-get-mail-command "/home/yevhens/.local/bin/offlineimap.sh"
+;;         mu4e-update-interval 300
+;;         send-mail-function (quote smtpmail-send-it)
+;;         smtpmail-smtp-server "smtp.gmail.com"
+;;         smtpmail-smtp-service 587))
 
 ;; (mu4e-alert-set-default-style 'libnotify)
 ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
 ;; (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
 
 
-;; nasm
-(require 'nasm-mode)
-(add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
-
-
 ;; magit
 (add-hook 'magit-mode-hook 'magit-todos-mode)
 
-;; (setq +pretty-code-symbols nil)
 
+;; lsp
 (setq lsp-dart-sdk-dir "/nix/store/w114n09zpyjy6dnry7mghwyiiz407d68-dart-2.7.1")
 
-(add-to-list 'exec-path (concat (getenv "HOME") "/dev/elixir/elixir-ls/release"))
+(use-package! lsp-mode
+  :commands lsp
+  :ensure t
+  :diminish lsp-mode
+  :hook
+  (elixir-mode . 'lsp)
+  :init
+  (add-to-list
+   'exec-path
+   (concat (getenv "HOME") "/dev/elixir/elixir-ls/release")))

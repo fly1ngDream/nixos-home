@@ -1,13 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-;; Copy this file to ~/.doom.d/init.el or ~/.config/doom/init.el ('doom
-;; quickstart' will do this for you). The `doom!' block below controls what
-;; modules are enabled and in what order they will be loaded. Remember to run
-;; 'doom refresh' after modifying it.
-;;
-;; More information about these modules (and what flags they support) can be
-;; found in modules/README.org.
-
 (doom! :input
        ;;chinese
        ;;japanese
@@ -69,7 +61,7 @@
        ansible
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        direnv
-       ;;docker
+       docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        eval              ; run code, run (also, repls)
@@ -148,7 +140,7 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       ;;web               ; the tubes
+       web               ; the tubes
        ;;vala              ; GObjective-C
 
        :email
@@ -181,12 +173,3 @@
        ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
        ;; config. Use it as a reference for your own modules.
        (default +bindings +smartparens))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(doom-modeline-major-mode-icon t)
- '(send-mail-function (quote smtpmail-send-it))
- '(smtpmail-smtp-server "smtp.gmail.com")
- '(smtpmail-smtp-service 587))
