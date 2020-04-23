@@ -6,8 +6,8 @@
       package = pkgs.papirus-icon-theme;
     };
     theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
+      name = "Ant-Dracula";
+      package = pkgs.ant-dracula-theme;
     };
     gtk3.extraConfig.gtk-cursor-theme-name = "Bibata_Oil";
   };

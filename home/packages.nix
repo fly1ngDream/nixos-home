@@ -136,6 +136,7 @@
       youtube-dl
 
       # my stuff
+      bibata-cursors
       # swaylayout
       translate-shell
     ];
