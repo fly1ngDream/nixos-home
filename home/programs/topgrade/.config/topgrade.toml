@@ -2,6 +2,7 @@ git_repos = [ "~/.emacs.d" ]
 disable = [
     "emacs",
     "gem",
+    "go",
+    "node",
     "flutter",
-    "go"
 ]
