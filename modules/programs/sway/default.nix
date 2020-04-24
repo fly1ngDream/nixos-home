@@ -10,7 +10,7 @@ let
 
   nixpkgsMaster = (import (builtins.fetchTarball
     "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {});
-  waybar = nixpkgsMaster.waybar;
+  waybar = nixpkgsMaster.waybar.override { pulseSupport = true; };
 in {
   options.programs.sway = {
     enableQtwayland = mkEnableOption "Qt via qt5.qtwayland";
