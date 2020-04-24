@@ -112,6 +112,7 @@
       inxi
       neofetch
       glances
+      gotop
       speedtest-cli
 
       # passwords & security
