@@ -15,12 +15,11 @@ in {
     };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     home.packages = with pkgs;
       [ topgrade ]
       ++ (optional (attrByPath [ "run_in_tmux" ] false cfg.config) tmux);
 
-    # TODO: lib.generators.toTOML would be *so* nice!
-    # xdg.configFile."topgrade.toml".text = lib.generators.toTOML { } cfg.config;
+    xdg.configFile."topgrade.toml".source = ./.config/topgrade.toml;
   };
 }

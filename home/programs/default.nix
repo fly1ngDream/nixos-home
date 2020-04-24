@@ -30,7 +30,7 @@
     ./ruby.nix
     ./rust
     ./scripts
-    ./topgrade.nix
+    ./topgrade
     ./waybar
     ./zathura.nix
     ./zsh
