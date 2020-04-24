@@ -15,18 +15,5 @@
         tls.useStartTls = true;
       };
     };
-  in {
-    blackbird-lab = rec {
-      realName = "Oleksii Filonenko";
-      address = "ofilonenko@blackbird-lab.com";
-      userName = address;
-      primary = true;
-      mbsync = {
-        enable = true;
-        create = "maildir";
-        expunge = "both";
-      };
-      passwordCommand = "gopass work/blackbird/mail";
-    } // office365;
-  };
+  in {};
 }
