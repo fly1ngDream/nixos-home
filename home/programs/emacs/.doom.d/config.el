@@ -10,9 +10,7 @@
 (after! doom-themes
   (setq doom-modeline-major-mode-icon t))
 
-(setq evil-normal-state-cursor '(box "DarkGoldenrod1")
-      evil-insert-state-cursor '(bar "DarkGoldenrod1")
-      evil-visual-state-cursor '(hollow "DarkGoldenrod1"))
+(setq +evil--default-cursor-color "DarkGoldenrod1")
 
 
 ;; evil-escape-key-sequence
