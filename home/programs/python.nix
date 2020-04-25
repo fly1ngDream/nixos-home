@@ -5,30 +5,21 @@ let
   cfg = config.programs.python;
   python = pkgs.python3;
   pythonPackages = pkgs.python3Packages;
-  myPythonPackages = pythonPackages: with pythonPackages; [
-    pylint-django
-  ];
-  pythonWithMyPackages = python.withPackages myPythonPackages;
 in {
+  imports = [
+    ./black
+    ./pylint
+  ];
+
   options.programs.python = {
     enable = mkEnableOption "Python language support";
     extraPackages = mkOption {
       default = with pythonPackages; [];
       type = with types; listOf package;
     };
-    enableBuildLibs = mkEnableOption "build libraries for Python";
-    provider = mkOption {
-      default = "nixpkgs";
-      type = types.enum [ "asdf" "nixpkgs" ];
-      example = "asdf";
-    };
   };
 
   config = mkIf cfg.enable {
-    programs.python.extraPackages = mkIf cfg.enableBuildLibs
-      (with pkgs; [ sqlite zlib ]);
-
-    home.packages = with pkgs;
-      (optional (cfg.provider == "nixpkgs") pythonWithMyPackages) ++ cfg.extraPackages;
+    home.packages = cfg.extraPackages;
   };
 }

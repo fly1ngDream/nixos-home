@@ -4,7 +4,6 @@
     ./asdf.nix
     ./aspell.nix
     ./beets.nix
-    ./black
     ./borgbackup.nix
     ./cmus
     ./crystal.nix
@@ -20,7 +19,6 @@
     ./nodejs.nix
     ./oguri
     ./prettier
-    ./pylint
     ./python.nix
     ./ranger
     ./ripgrep.nix

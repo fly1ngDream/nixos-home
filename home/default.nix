@@ -28,7 +28,6 @@
 
     programs = {
       asdf.enable = false;
-      black.enable = true;
       crystal.enable = false;
       emacs = {
         enable = true;
@@ -50,7 +49,6 @@
         provider = "nixpkgs";
         enableSolargraph = true;
       };
-      pylint.enable = true;
       python = {
         enable = true;
         extraPackages = with pkgs.python3Packages; [
@@ -61,11 +59,10 @@
           nvchecker
           mypy
           python-language-server
-          black
           codecov
         ];
-        enableBuildLibs = true;
-        provider = "nixpkgs";
+        black.enable = true;
+        pylint.enable = true;
       };
       topgrade = {
         enable = true;
