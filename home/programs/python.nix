@@ -5,6 +5,8 @@ let
   cfg = config.programs.python;
   python = pkgs.python3;
   pythonPackages = pkgs.python3Packages;
+  myPythonPackages = pythonPackages: with pythonPackages; [];
+  pythonWithMyPackages = python.withPackages myPythonPackages;
 in {
   imports = [
     ./black
@@ -20,6 +22,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = cfg.extraPackages;
+    home.packages = [ pythonWithMyPackages ] ++ cfg.extraPackages;
   };
 }
