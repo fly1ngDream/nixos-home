@@ -52,7 +52,6 @@
       python = {
         enable = true;
         extraPackages = with pkgs.python3Packages; [
-          pip
           ipython
           poetry
           grip
