@@ -14,8 +14,12 @@
     enableCompletion = true;
     autocd = true;
     loginExtra = ''
+      if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+        export XDG_SESSION_TYPE=wayland
+        exec sway
+      fi
       ssh-add -D
-      ssh-add $HOME/.ssh/{id_rsa}
+      ssh-add $HOME/.ssh/id_rsa
     '';
     envExtra = ''
       fpath+=$HOME/.zsh_completions

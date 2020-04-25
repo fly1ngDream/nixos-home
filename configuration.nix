@@ -110,20 +110,6 @@ services = {
   dbus.packages = [ pkgs.gnome3.dconf ];
   flatpak.enable = true;
   geoclue2.enable = true;
-  xserver = {
-    enable = true;
-    displayManager.lightdm = {
-      enable = true;
-      autoLogin = {
-        enable = true;
-        user = "yevhens";
-      };
-      greeters.gtk.cursorTheme = {
-        name = "Bibata_Oil";
-        package = pkgs.bibata-cursors;
-      };
-    };
-  };
   blueman.enable = true;
 };
 
