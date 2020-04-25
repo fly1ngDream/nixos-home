@@ -168,6 +168,8 @@
 ;; magit
 (add-hook 'magit-mode-hook 'magit-todos-mode)
 
+(setq org-directory "~/org")
+
 
 ;; lsp
 (setq lsp-dart-sdk-dir "/nix/store/w114n09zpyjy6dnry7mghwyiiz407d68-dart-2.7.1")
