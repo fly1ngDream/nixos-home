@@ -1,3 +1,6 @@
+# colors
+set $blue "#3366CC"
+
 # font
 font pango:Fira Code 10
 
@@ -26,14 +29,14 @@ floating_modifier Mod4
 
 focus_follows_mouse yes
 
-client.focused #353439 #993399 #7B9F35 #993399 #993399
+client.focused #353439 $blue #7B9F35 $blue $blue
 
 # GAPS
 gaps inner 5
 gaps outer 3
 smart_gaps on
 smart_borders on
-default_border pixel 1
+default_border pixel 3
 
 input type:keyboard {
     xkb_layout us,ru,ua
