@@ -6,8 +6,8 @@
       package = pkgs.papirus-icon-theme;
     };
     theme = {
-      name = "Ant-Dracula";
-      package = pkgs.ant-dracula-theme;
+      name = "Adapta-Nokto-Eta";
+      package = pkgs.adapta-gtk-theme;
     };
     gtk3.extraConfig.gtk-cursor-theme-name = "Bibata_Oil";
   };
