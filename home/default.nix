@@ -52,13 +52,13 @@
       python = {
         enable = true;
         extraPackages = with pkgs.python3Packages; [
-          ipython
-          poetry
-          grip
-          nvchecker
-          mypy
-          python-language-server
           codecov
+          grip
+          ipython
+          mypy
+          nvchecker
+          poetry
+          python-language-server
         ];
         black.enable = true;
         pylint.enable = true;
