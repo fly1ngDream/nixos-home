@@ -42,7 +42,7 @@ in {
           gebaar-libinput # libinput gestures utility
           glpaper # GL shaders as wallpaper
           grim # screen image capture
-          # i3status-rust # cool bar
+          i3status-rust # cool bar
           imv # image viewer
           kanshi # dynamic display configuration helper
           mako # notification daemon
@@ -54,9 +54,9 @@ in {
           waypipe # network transparency for Wayland
           wf-recorder # wayland screenrecorder
           wl-clipboard # clipboard CLI utilities
-          # wmctrl
-          # wtype # xdotool, but for wayland (TODO broken)
-          # xdg-desktop-portal-wlr # xdg-desktop-portal backend for wlroots
+          wmctrl
+          wtype # xdotool, but for wayland (TODO broken)
+          xdg-desktop-portal-wlr # xdg-desktop-portal backend for wlroots
           ydotool # xdotool for wayland
         ] ++ (optional cfg.enableXwayland xwayland)
         ++ (optional cfg.enableQtwayland qt5.qtwayland);

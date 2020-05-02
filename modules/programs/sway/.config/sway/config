@@ -198,6 +198,8 @@ exec_always --no-startup-id {
 
     # $HOME/.config/swayidle/launch.sh
 
+    kanshi
+
     # "redshift"
 
     # "nm-applet"
