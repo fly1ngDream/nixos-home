@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = let rev = "master";
-      in "https://github.com/filalex77/nixpkgs-overlay/archive/${rev}.tar.gz";
-    }))
-  ];
+  nixpkgs = {
+    overlays = [];
+    config = {
+      permittedInsecurePackages = [];
+    };
+  };
 
   home.packages = with pkgs;
     let
@@ -14,10 +14,9 @@
         withGTK3 = true;
         withGTK2 = false;
       });
-      steamWithLibs =
-        (steam.override { extraPkgs = pkgs: [ libjpeg openssl_1_0_2 ]; });
-      steam-run = (steamWithLibs.override { nativeOnly = true; }).run;
       flutter = flutterPackages.stable;
+      # nixpkgsMaster = (import (builtins.fetchTarball
+      #   "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {});
     in [
       # development
       ameba
@@ -46,6 +45,7 @@
       nim
       nodePackages.live-server
       nodePackages.prettier
+      nodePackages.serverless
       openmpi
       redis
       ruby
@@ -101,12 +101,6 @@
       # weechat
       zoom-us
       thunderbird
-
-      # gaming software
-      steamWithLibs
-      steam-run
-      wineFull
-      winetricks
 
       # monitoring
       inxi
