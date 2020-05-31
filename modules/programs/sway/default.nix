@@ -7,9 +7,6 @@ let
   rev = "master";
   url = "https://github.com/colemickens/nixpkgs-wayland/archive/${rev}.tar.gz";
   waylandOverlay = (import (builtins.fetchTarball url));
-
-  # nixpkgsMaster = (import (builtins.fetchTarball
-  #   "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {});
 in {
   options.programs.sway = {
     enableQtwayland = mkEnableOption "Qt via qt5.qtwayland";
