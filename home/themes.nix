@@ -9,7 +9,7 @@
       name = "Adapta-Nokto-Eta";
       package = pkgs.adapta-gtk-theme;
     };
-    gtk3.extraConfig.gtk-cursor-theme-name = "Bibata_Oil";
+    # gtk3.extraConfig.cursor-theme-name = "Bibata_Oil";
   };
   qt = {
     enable = true;
