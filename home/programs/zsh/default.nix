@@ -28,7 +28,9 @@
 
       export PATH="$PYENV_ROOT/bin:$PATH"
       export PATH="$HOME/.mix/escripts:$PATH"
-      export PATH="$HOME/go/bin:$PATH"
+      export PATH=$PATH:$(go env GOPATH)/bin
+
+      export GOPATH=$(go env GOPATH)
 
       export ERL_AFLAGS="-kernel shell_history enabled"
     '';
