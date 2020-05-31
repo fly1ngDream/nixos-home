@@ -15,6 +15,11 @@
         withGTK2 = false;
       });
       flutter = flutterPackages.stable;
+      myNodePackages = with nodePackages; [
+        deno
+        prettier
+        serverless
+      ];
       # nixpkgsMaster = (import (builtins.fetchTarball
       #   "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {});
     in [
@@ -43,9 +48,6 @@
       lua
       nasm
       nim
-      nodePackages.live-server
-      nodePackages.prettier
-      nodePackages.serverless
       openmpi
       redis
       ruby
@@ -135,5 +137,5 @@
       bibata-cursors
       # swaylayout
       translate-shell
-    ];
+    ] ++ myNodePackages;
 }
