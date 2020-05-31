@@ -65,6 +65,7 @@
 
       # web browsers
       brave
+      firefox
 
       # documents
       gimp
