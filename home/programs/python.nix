@@ -5,7 +5,7 @@ let
   cfg = config.programs.python;
   python = pkgs.python3;
   pythonPackages = pkgs.python3Packages;
-  myPythonPackages = pythonPackages: with pythonPackages; [];
+  myPythonPackages = pythonPackages: with pythonPackages; [ setuptools pip ];
   pythonWithMyPackages = python.withPackages myPythonPackages;
 in {
   imports = [
