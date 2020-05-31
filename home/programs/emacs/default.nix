@@ -17,7 +17,7 @@ in {
     programs = {
       emacs = {
         package = if cfg.useHead then pkgs.emacsGit else pkgs.emacs;
-        extraPackages = epkgs: [ epkgs.emacs-libvterm ];
+        extraPackages = epkgs: [ epkgs.vterm ];
       };
       zsh = {
         envExtra = ''
