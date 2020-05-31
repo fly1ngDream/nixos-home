@@ -15,5 +15,5 @@
         tls.useStartTls = true;
       };
     };
-  in {};
+  in { };
 }

@@ -6,29 +6,29 @@
 {
   imports = [ ../../profiles/boot/efi.nix ../../profiles/form/laptop.nix ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "rtsx_usb_sdmmc" ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "rtsx_usb_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4a8e784a-ac50-4505-b5c2-ab9bec9e7dcb";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/4a8e784a-ac50-4505-b5c2-ab9bec9e7dcb";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5C0A-3CC6";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/5C0A-3CC6";
+    fsType = "vfat";
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/3f90a604-2cc2-46a5-9792-bd9c43a4990b";
-      fsType = "ext4";
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/3f90a604-2cc2-46a5-9792-bd9c43a4990b";
+    fsType = "ext4";
+  };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/44357f2a-e03e-4880-90fe-65f23290ddbc"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/44357f2a-e03e-4880-90fe-65f23290ddbc"; }];
 
   nix.maxJobs = lib.mkDefault 4;
 }

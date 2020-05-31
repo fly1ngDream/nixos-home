@@ -10,8 +10,7 @@
 
     users.yevhens = {
       isNormalUser = true;
-      extraGroups =
-        [ "sudo" "wheel" "adbusers" ];
+      extraGroups = [ "sudo" "wheel" "adbusers" ];
       hashedPassword = "$1$Z7X9FGwu$fBYUonPaBwqVPr60VjFw0/";
       shell = pkgs.zsh;
     };
@@ -73,8 +72,6 @@
       waybar.enable = true;
     };
 
-    services = {
-      lorri.enable = true;
-    };
+    services = { lorri.enable = true; };
   };
 }

@@ -8,15 +8,12 @@ let
   myPythonPackages = pythonPackages: with pythonPackages; [ setuptools pip ];
   pythonWithMyPackages = python.withPackages myPythonPackages;
 in {
-  imports = [
-    ./black
-    ./pylint
-  ];
+  imports = [ ./black ./pylint ];
 
   options.programs.python = {
     enable = mkEnableOption "Python language support";
     extraPackages = mkOption {
-      default = with pythonPackages; [];
+      default = with pythonPackages; [ ];
       type = with types; listOf package;
     };
   };

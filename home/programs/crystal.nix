@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
-let cfg = config.programs.crystal; in
-{
+let cfg = config.programs.crystal;
+in {
   options.programs.crystal = {
     enable = mkEnableOption "Crystal language support";
 

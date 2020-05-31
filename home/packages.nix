@@ -2,10 +2,8 @@
 
 {
   nixpkgs = {
-    overlays = [];
-    config = {
-      permittedInsecurePackages = [];
-    };
+    overlays = [ ];
+    config = { permittedInsecurePackages = [ ]; };
   };
 
   home.packages = with pkgs;
@@ -15,11 +13,7 @@
         withGTK2 = false;
       });
       flutter = flutterPackages.stable;
-      myNodePackages = with nodePackages; [
-        deno
-        prettier
-        serverless
-      ];
+      myNodePackages = with nodePackages; [ deno prettier serverless ];
       # nixpkgsMaster = (import (builtins.fetchTarball
       #   "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {});
     in [
@@ -63,6 +57,7 @@
       nix-index
       nix-prefetch-github
       nixpkgs-review
+      nixfmt
       patchelf
 
       # web browsers

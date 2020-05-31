@@ -12,6 +12,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pythonPackages; [ black ];
 
-    xdg.configFile."black/pyproject.toml".source = ./.config/black/pyproject.toml;
+    xdg.configFile."black/pyproject.toml".source =
+      ./.config/black/pyproject.toml;
   };
 }

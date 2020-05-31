@@ -30,7 +30,8 @@ in {
           max-length = 50;
         };
         "custom/keyboard" = {
-          exec = ".cargo/bin/swaylayout --listen 1:1:AT_Translated_Set_2_keyboard";
+          exec =
+            ".cargo/bin/swaylayout --listen 1:1:AT_Translated_Set_2_keyboard";
         };
         network = {
           tooltip = false;

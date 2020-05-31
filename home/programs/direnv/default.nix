@@ -13,7 +13,5 @@ in {
     };
   };
 
-  home = mkIf cfg.enable {
-    file.".direnvrc".source = ./direnvrc;
-  };
+  home = mkIf cfg.enable { file.".direnvrc".source = ./direnvrc; };
 }
