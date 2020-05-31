@@ -184,3 +184,8 @@
   (add-to-list
    'exec-path
    (concat (getenv "HOME") "/dev/elixir/elixir-ls/release")))
+
+;; go
+(add-to-list
+   'exec-path
+   (concat (getenv "HOME") "/go/bin"))
