@@ -72,19 +72,16 @@
         load-module module-switch-on-connect
       '';
     };
-  };
-
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
-
-  hardware = {
     squashfs.enable = true;
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
     };
+  };
+
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
   };
 
   networking = {
