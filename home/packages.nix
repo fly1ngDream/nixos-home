@@ -19,6 +19,7 @@
     in [
       # development
       ameba
+      awscli
       ccls
       chromedriver
       clang-tools
@@ -62,6 +63,7 @@
 
       # web browsers
       brave
+      google-chrome
       firefox
 
       # documents
