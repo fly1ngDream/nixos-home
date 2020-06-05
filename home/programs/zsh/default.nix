@@ -67,10 +67,11 @@
       }
     ];
     shellAliases = {
-      ls = "exa --group-directories-first";
+      black = "black --config=$HOME/.config/black/pyproject.toml";
+      cat = "bat";
       cdr = "cd $(git rev-parse --show-toplevel)";
       grep = "rg";
-      black = "black --config=$HOME/.config/black/pyproject.toml";
+      ls = "exa --group-directories-first";
     };
   };
 }
