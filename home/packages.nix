@@ -49,6 +49,7 @@
       sass
       shellcheck
       shfmt
+      texlive.combined.scheme-full
       wakatime
       openjdk8
       zig
@@ -134,5 +135,6 @@
       bibata-cursors
       # swaylayout
       translate-shell
+      blender
     ] ++ myNodePackages;
 }
