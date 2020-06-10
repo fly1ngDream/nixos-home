@@ -39,7 +39,7 @@
     bat.enable = true;
     broot.enable = true;
     chromium = {
-      enable = true;
+      enable = false;
       extensions = [
         "gcbommkclmclpchllfjekcdonpmejbdp" # HTTPS Everywhere
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
@@ -57,6 +57,7 @@
       enable = false;
       settings = { };
     };
+    tmux.enable = true;
     vim.enable = true;
   };
 }
