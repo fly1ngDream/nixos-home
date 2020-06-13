@@ -53,7 +53,7 @@
       wakatime
       openjdk8
       zig
-      vscodium
+      vscode
 
       # nix stuff
       nix-index
