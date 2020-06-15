@@ -3,7 +3,10 @@
 {
   nixpkgs = {
     overlays = [ ];
-    config = { permittedInsecurePackages = [ ]; };
+    config = {
+      permittedInsecurePackages = [ ];
+      allowUnsupportedSystem = true;
+    };
   };
 
   home.packages = with pkgs;
@@ -40,6 +43,7 @@
       inotify-tools
       insomnia
       ix
+      lld_10
       lua
       nasm
       nim
@@ -49,11 +53,12 @@
       sass
       shellcheck
       shfmt
+      tinygo
       texlive.combined.scheme-full
       wakatime
+      # wasilibc
       openjdk8
       zig
-      vscode
 
       # nix stuff
       nix-index
@@ -61,11 +66,6 @@
       nixpkgs-review
       nixfmt
       patchelf
-
-      # web browsers
-      brave
-      google-chrome
-      firefox
 
       # documents
       gimp
@@ -119,7 +119,9 @@
       doctl
       httpie
       miniserve
+      netcat
       rclone
+      telnet
       transmission-gtk
 
       # synchronization
