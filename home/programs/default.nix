@@ -47,6 +47,7 @@
     };
     command-not-found.enable = true;
     go.enable = true;
+    google-chrome.enable = true;
     gpg.enable = true;
     htop.enable = true;
     jq.enable = true;
@@ -59,5 +60,6 @@
     };
     tmux.enable = true;
     vim.enable = true;
+    vscode.enable = true;
   };
 }
