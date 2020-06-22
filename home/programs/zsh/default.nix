@@ -72,6 +72,8 @@
       cdr = "cd $(git rev-parse --show-toplevel)";
       grep = "rg";
       ls = "exa --group-directories-first";
+      golines = "golines -w -m 80";
+      gomodifytags = "gomodifytags -add-tags json -all -w";
     };
   };
 }
