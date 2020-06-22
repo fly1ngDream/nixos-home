@@ -1,7 +1,7 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
 ;; Font
-(setq doom-font (font-spec :family "Fira Code" :size 15))
+(setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'normal))
 
 
 ;; Theme
@@ -10,7 +10,8 @@
 (after! doom-themes
   (setq doom-modeline-major-mode-icon t))
 
-(setq evil-normal-state-cursor '(box "DarkGoldenrod1")
+(setq evil-default-cursor '(t "DarkGoldenrod1")
+      evil-normal-state-cursor '(box "DarkGoldenrod1")
       evil-insert-state-cursor '(bar "DarkGoldenrod1")
       evil-visual-state-cursor '(hollow "DarkGoldenrod1")
       evil-operator-state-cursor '(evil-half-cursor "DarkGoldenrod1"))
@@ -114,12 +115,11 @@
 ;; flycheck
 (setq-default flycheck-disabled-checkers
               '(python-flake8
-                python-pycompile
-                python-mypy))
+                python-pycompile))
 
 
 ;; agenda
-(setq org-agenda-files '("~/Documents/org/"))
+(setq org-agenda-files '("~/dev/org/"))
 
 (setq org-agenda-custom-commands
       '(("c" "Custom agenda view"
@@ -138,9 +138,9 @@
       :name "#+NAME:"
       :src_block "#+BEGIN_SRC"
       :src_block_end "#+END_SRC"
-      :alist '(("[ ]" . "")
-               ("[X]" . "")
-               ("[-]" . "")
+      :alist '(("[ ]" . "")
+               ("[X]" . "")
+               ("[-]" . "")
                ("SCHEDULED:" . "")
                ("DEADLINE:" . "")
                ("#+begin_src" . "«")
@@ -168,11 +168,11 @@
 ;; magit
 (add-hook 'magit-mode-hook 'magit-todos-mode)
 
-(setq org-directory "~/org")
+(setq org-directory "~/dev/org")
 
 
 ;; lsp
-(setq lsp-dart-sdk-dir "/nix/store/w114n09zpyjy6dnry7mghwyiiz407d68-dart-2.7.1")
+(setq lsp-dart-sdk-dir "/nix/store/72xclicvm2kjqgh627i7g8fy3qvqijns-dart-2.7.2")
 
 (use-package! lsp-mode
   :commands lsp
@@ -184,6 +184,8 @@
   (add-to-list
    'exec-path
    (concat (getenv "HOME") "/dev/elixir/elixir-ls/release")))
+
+(setq lsp-gopls-codelens nil)
 
 ;; go
 (add-to-list
