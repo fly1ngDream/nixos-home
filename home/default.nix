@@ -14,6 +14,8 @@
       hashedPassword = "$1$Z7X9FGwu$fBYUonPaBwqVPr60VjFw0/";
       shell = pkgs.zsh;
     };
+    users.root.hashedPassword =
+      "$6$r6a3R8oY.6wFlTx8$mgJ/kD/K.1tDNDeeUZSYMTpwGlXgg/vhOzbFVgrQTb5Vjj4J428k1hh6OBdOBESAP.lpSxEQiniry2FwZ0xlw0";
   };
 
   home-manager.users.yevhens = { pkgs, ... }: {
@@ -57,7 +59,7 @@
           mypy
           nvchecker
           poetry
-          python-language-server
+          # python-language-server
         ];
         black.enable = true;
         pylint.enable = true;
