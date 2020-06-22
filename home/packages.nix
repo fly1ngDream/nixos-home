@@ -99,14 +99,10 @@
       slack
       tdesktop
       teams
-      # weechat
       zoom-us
-      thunderbird
 
       # monitoring
-      inxi
       neofetch
-      glances
       gotop
       speedtest-cli
 
@@ -130,7 +126,6 @@
 
       # entertainment
       epr
-      # python3Packages.mps-youtube
       youtube-dl
 
       # my stuff
