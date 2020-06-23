@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs.jetbrains; [ ruby-mine ];
+  home.packages = with pkgs.jetbrains; [  ];
 }
