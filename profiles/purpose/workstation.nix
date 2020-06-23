@@ -13,4 +13,6 @@
     mysql.enable = true;
     postgresql.enable = true;
   };
+
+  nixpkgs.config.allowUnfree = true;
 }
