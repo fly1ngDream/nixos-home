@@ -1,6 +1,6 @@
 {
   programs.beets = {
-    enable = true;
+    enable = false;
     settings = {
       directory = "~/music";
       library = "~/.config/beets/library.yaml";
