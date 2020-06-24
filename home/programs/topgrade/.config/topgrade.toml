@@ -4,6 +4,7 @@ disable = [
     "go",
     "node",
     "flutter",
+    "rustup",
 ]
 
 [git]
