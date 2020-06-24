@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.ranger pkgs.ueberzug ];
+  home.packages = with pkgs; [ ranger w3m-full ];
 
   xdg.configFile = {
     "ranger/rc.conf".source = ./rc.conf;
