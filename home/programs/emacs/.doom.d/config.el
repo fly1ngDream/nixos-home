@@ -172,7 +172,7 @@
 
 
 ;; lsp
-(setq lsp-dart-sdk-dir "/nix/store/72xclicvm2kjqgh627i7g8fy3qvqijns-dart-2.7.2")
+(setq lsp-dart-sdk-dir (getenv "DARTPATH"))
 
 (use-package! lsp-mode
   :commands lsp
