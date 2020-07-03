@@ -17,11 +17,12 @@
       });
       flutter = flutterPackages.stable;
       myNodePackages = with nodePackages; [ deno prettier serverless ];
-      # nixpkgsMaster = (import (builtins.fetchTarball
-      #   "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {});
+      comma = (import (builtins.fetchTarball
+        "https://github.com/Shopify/comma/archive/master.tar.gz") {});
     in [
       # development
       ameba
+      asciinema
       awscli
       ccls
       chromedriver
@@ -39,9 +40,9 @@
       gdb
       gitAndTools.gh
       ghc
+      glib
       gnome3.glade
       inotify-tools
-      insomnia
       ix
       lld_10
       lua
@@ -61,6 +62,7 @@
       zig
 
       # nix stuff
+      comma
       nix-index
       nix-prefetch-github
       nixpkgs-review
@@ -114,6 +116,7 @@
       ddgr
       doctl
       httpie
+      insomnia
       miniserve
       netcat
       rclone
