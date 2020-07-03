@@ -38,13 +38,6 @@
     bash.enable = true;
     bat.enable = true;
     broot.enable = true;
-    chromium = {
-      enable = false;
-      extensions = [
-        "gcbommkclmclpchllfjekcdonpmejbdp" # HTTPS Everywhere
-        "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
-      ];
-    };
     command-not-found.enable = true;
     go.enable = true;
     google-chrome.enable = true;
