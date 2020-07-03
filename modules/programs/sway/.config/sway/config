@@ -57,6 +57,15 @@ input "2821:257:Asus_TouchPad" {
 
 output eDP-1 bg ~/Wallpapers/wall.jpg stretch
 
+# GTK
+# set $gnome-schema org.gnome.desktop.interface
+
+# exec_always {
+#     gsettings set $gnome-schema gtk-theme 'Arc-Dark'
+#     gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+#     gsettings set $gnome-schema cursor-theme 'Bibata_Oil'
+# }
+
 bindsym --to-code {
     # start a terminal
     Mod4+Return exec "alacritty"
