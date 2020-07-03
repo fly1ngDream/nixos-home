@@ -23,7 +23,6 @@
 
     nixpkgs.config = {
       allowUnfree = true;
-      permittedInsecurePackages = [ "openssl-1.0.2u" ];
       pulseaudio = true;
     };
 
@@ -57,9 +56,9 @@
           grip
           ipython
           mypy
-          nvchecker
+          # nvchecker
           poetry
-          # python-language-server
+          python-language-server
         ];
         black.enable = true;
         pylint.enable = true;
