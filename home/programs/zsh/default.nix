@@ -32,7 +32,7 @@
 
       export GOPATH=$(go env GOPATH)
 
-      export DARTPATH=$(dirname $(dirname $(readlink $(readlink $(which dart)))))
+      export DARTPATH=$(dirname $(dirname $(readlink $(which dart))))
 
       export ERL_AFLAGS="-kernel shell_history enabled"
     '';
