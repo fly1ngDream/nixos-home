@@ -115,7 +115,8 @@
 ;; flycheck
 (setq-default flycheck-disabled-checkers
               '(python-flake8
-                python-pycompile))
+                python-pycompile
+                python-mypy))
 
 
 ;; agenda
