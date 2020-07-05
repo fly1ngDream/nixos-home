@@ -72,10 +72,11 @@
       black = "black --config=$HOME/.config/black/pyproject.toml";
       cat = "bat";
       cdr = "cd $(git rev-parse --show-toplevel)";
-      grep = "rg";
-      ls = "exa --group-directories-first";
+      git = "hub";
       golines = "golines -w -m 80";
       gomodifytags = "gomodifytags -add-tags json -all -w";
+      grep = "rg";
+      ls = "exa --group-directories-first";
     };
   };
 }

@@ -38,7 +38,7 @@
       fd
       flutter
       gdb
-      gitAndTools.gh
+      gitAndTools.git-hub
       ghc
       glib
       gnome3.glade
