@@ -3,7 +3,7 @@
 {
   programs = {
     firefox = {
-      enable = true;
+      enable = false;
       package = pkgs.firefox-wayland;
       profiles.default = {
         settings = {

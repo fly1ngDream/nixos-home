@@ -19,7 +19,7 @@
     ./nodejs.nix
     ./oguri
     ./prettier
-    ./python.nix
+    ./python
     ./ranger
     ./ripgrep.nix
     ./rofi

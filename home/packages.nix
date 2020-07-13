@@ -1,14 +1,6 @@
 { pkgs, ... }:
 
 {
-  nixpkgs = {
-    overlays = [ ];
-    config = {
-      permittedInsecurePackages = [ ];
-      allowUnsupportedSystem = true;
-    };
-  };
-
   home.packages = with pkgs;
     let
       myEmacs = (emacs.override {
@@ -18,12 +10,13 @@
       flutter = flutterPackages.stable;
       myNodePackages = with nodePackages; [ deno prettier serverless ];
       comma = (import (builtins.fetchTarball
-        "https://github.com/Shopify/comma/archive/master.tar.gz") {});
+        "https://github.com/Shopify/comma/archive/master.tar.gz") { });
     in [
       # development
       ameba
       asciinema
       awscli
+      caddy2
       ccls
       chromedriver
       clang-tools
@@ -36,6 +29,7 @@
       erlang
       exercism
       fd
+      firefox-devedition-bin
       flutter
       gdb
       gitAndTools.git-hub

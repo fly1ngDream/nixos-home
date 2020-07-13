@@ -54,7 +54,6 @@
         extraPackages = with pkgs.python3Packages; [
           codecov
           grip
-          ipython
           mypy
           # nvchecker
           poetry
