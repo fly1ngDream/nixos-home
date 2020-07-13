@@ -106,6 +106,17 @@
 ;; (setq pylint-options '("--rcfile=~/.config/pylint/pylintrc"))
 (setq flycheck-pylintrc "~/.config/pylint/pylintrc")
 
+(defun black-format ()
+  "Format current file using Black formatter."
+  (interactive)
+  (shell-command-to-string
+    (concat
+      "black --config="
+      (getenv "HOME")
+      "/.config/black/pyproject.toml "
+      (file-name-directory (buffer-file-name))))
+  (revert-buffer))
+
 
 ;; snippets
 (require 'yasnippet)
