@@ -5,7 +5,19 @@ let
   cfg = config.programs.python;
   python = pkgs.python3;
   pythonPackages = pkgs.python3Packages;
-  myPythonPackages = pythonPackages: with pythonPackages; [ setuptools pip ];
+  myPythonPackages = pythonPackages:
+    with pythonPackages; [
+      setuptools
+      pip
+      ipdb
+      ipykernel
+      numpy
+      pandas
+      matplotlib
+      seaborn
+      scipy
+      scikitlearn
+    ];
   pythonWithMyPackages = python.withPackages myPythonPackages;
 in {
   imports = [ ./black ./pylint ];
@@ -20,5 +32,13 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [ pythonWithMyPackages ] ++ cfg.extraPackages;
+
+    programs.zsh = {
+      envExtra = ''
+        export PYTHONBREAKPOINT=ipdb.set_trace
+      '';
+    };
+
+    home.file.".pdbrc".source = ./.pdbrc;
   };
 }
