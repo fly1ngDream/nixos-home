@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
+
 {
   programs = {
     firefox = {
-      enable = false;
-      package = pkgs.firefox-wayland;
+      enable = true;
       profiles.default = {
         settings = {
           "browser.startup.homepage" = "https://zombiefox.github.io/nightTab/";
