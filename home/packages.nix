@@ -29,7 +29,6 @@
       erlang
       exercism
       fd
-      firefox-devedition-bin
       flutter
       gdb
       gitAndTools.git-hub
@@ -38,11 +37,14 @@
       gnome3.glade
       inotify-tools
       ix
+      kubectl
       lld_10
       lua
+      minikube
       nasm
       nim
       openmpi
+      pkg-config
       redis
       ruby
       sass
@@ -123,6 +125,7 @@
 
       # entertainment
       epr
+      spotify
       youtube-dl
 
       # my stuff
