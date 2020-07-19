@@ -114,7 +114,7 @@
       "black --config="
       (getenv "HOME")
       "/.config/black/pyproject.toml "
-      (file-name-directory (buffer-file-name))))
+      (buffer-file-name)))
   (revert-buffer))
 
 
@@ -203,3 +203,21 @@
 (add-to-list
    'exec-path
    (concat (getenv "HOME") "/go/bin"))
+
+(defun golinesfmt ()
+  "Format current file using golines formatter."
+  (interactive)
+  (shell-command-to-string
+    (concat
+      "golines -w -m 80 "
+      (buffer-file-name)))
+  (revert-buffer))
+
+(defun gomodifytags ()
+  "Add tags for all structs of the current buffer."
+  (interactive)
+  (shell-command-to-string
+    (concat
+      "gomodifytags -add-tags json -all -w -file "
+      (buffer-file-name)))
+  (revert-buffer))
