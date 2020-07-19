@@ -19,6 +19,13 @@
   boot = {
     cleanTmpDir = true;
     kernelPackages = pkgs.linuxPackages_5_4;
+    binfmt.registrations = {
+      go = {
+        recognitionType = "extension";
+        magicOrExtension = "go";
+        interpreter = /usr/local/bin/gorun;
+      };
+    };
   };
 
   environment.pathsToLink = [ "share/zsh" ];
@@ -33,6 +40,7 @@
     gcc9
     git
     gnumake
+    gtk3
     lsb-release
     ncdu
     pamixer
