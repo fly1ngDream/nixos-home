@@ -7,16 +7,24 @@ let
   pythonPackages = pkgs.python3Packages;
   myPythonPackages = pythonPackages:
     with pythonPackages; [
-      setuptools
+      # setup
       pip
+      setuptools
+
+      # ipython
       ipdb
       ipykernel
+
+      # ml
+      matplotlib
       numpy
       pandas
-      matplotlib
       seaborn
       scipy
       scikitlearn
+
+      # other
+      pygobject
     ];
   pythonWithMyPackages = python.withPackages myPythonPackages;
 in {
