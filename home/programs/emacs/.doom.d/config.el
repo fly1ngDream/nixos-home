@@ -153,8 +153,8 @@
       :alist '(("[ ]" . "")
                ("[X]" . "")
                ("[-]" . "")
-               ("SCHEDULED:" . "")
-               ("DEADLINE:" . "")
+               ("SCHEDULED:" . "")
+               ("DEADLINE:" . "")
                ("#+begin_src" . "«")
                ("#+end_src" . "»")))))
 
