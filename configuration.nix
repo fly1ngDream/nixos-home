@@ -117,10 +117,11 @@
   security.sudo.wheelNeedsPassword = false;
 
   services = {
-    dbus.packages = [ pkgs.gnome3.dconf ];
-    flatpak.enable = true;
-    geoclue2.enable = true;
     blueman.enable = true;
+    dbus.packages = [ pkgs.gnome3.dconf ];
+    geoclue2.enable = true;
+    spotifyd.enable = true;
+    flatpak.enable = true;
   };
 
   xdg.portal = {

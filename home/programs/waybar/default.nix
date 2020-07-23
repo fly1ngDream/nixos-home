@@ -33,6 +33,13 @@ in {
           exec =
             ".cargo/bin/swaylayout --listen 1:1:AT_Translated_Set_2_keyboard";
         };
+        "custom/spotify" = {
+          format = " {}";
+          max-length = 40;
+          interval = 30;
+          exec = "$HOME/.nix-profile/bin/mediaplayer.sh 2> /dev/null";
+          exec-if = "pgrep spotify";
+        };
         network = {
           tooltip = false;
           format-wifi = " {essid}";
