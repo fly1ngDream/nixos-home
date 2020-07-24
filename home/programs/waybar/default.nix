@@ -37,7 +37,7 @@ in {
           format = " {}";
           max-length = 40;
           interval = 30;
-          exec = "$HOME/.nix-profile/bin/mediaplayer.sh 2> /dev/null";
+          exec = "$HOME/.nix-profile/bin/mediaplayer.py 2> /dev/null";
           exec-if = "pgrep spotify";
         };
         network = {
