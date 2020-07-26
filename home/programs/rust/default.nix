@@ -11,7 +11,7 @@
     cargo-edit
     cargo-expand
     cargo-flamegraph
-    cargo-fuzz
+    # cargo-fuzz
     cargo-geiger
     cargo-generate
     cargo-graph
@@ -23,7 +23,7 @@
     cargo-sweep
     cargo-tree
     cargo-udeps
-    # cargo-update
+    cargo-update
     cargo-watch
     cargo-web
     cargo-xbuild
