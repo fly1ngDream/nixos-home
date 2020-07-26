@@ -36,9 +36,7 @@ in {
         };
         "custom/spotify" = {
           format = " {}";
-          max-length = 40;
-          interval = 30;
-          exec = "$HOME/bin/mediaplayer.py 2> /dev/null";
+          exec = "spotify-status";
           exec-if = "pgrep spotify";
         };
         network = {

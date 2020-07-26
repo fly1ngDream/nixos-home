@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+pkill playerctl
+playerctl metadata --format '{{ artist }} - {{ title }}' --follow 2> /dev/null
