@@ -14,6 +14,7 @@ in {
         modules-left = [ "sway/workspaces" "sway/mode" "sway/window" ];
         modules-center = [ "clock" ];
         modules-right = [
+          "custom/spotify"
           "backlight"
           "pulseaudio"
           "custom/keyboard"
@@ -31,13 +32,13 @@ in {
         };
         "custom/keyboard" = {
           exec =
-            ".cargo/bin/swaylayout --listen 1:1:AT_Translated_Set_2_keyboard";
+            "$HOME/.cargo/bin/swaylayout --listen 1:1:AT_Translated_Set_2_keyboard";
         };
         "custom/spotify" = {
           format = " {}";
           max-length = 40;
           interval = 30;
-          exec = "$HOME/.nix-profile/bin/mediaplayer.py 2> /dev/null";
+          exec = "$HOME/bin/mediaplayer.py 2> /dev/null";
           exec-if = "pgrep spotify";
         };
         network = {

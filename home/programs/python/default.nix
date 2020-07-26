@@ -24,7 +24,7 @@ let
       scikitlearn
 
       # other
-      pygobject
+      pygobject3
     ];
   pythonWithMyPackages = python.withPackages myPythonPackages;
 in {

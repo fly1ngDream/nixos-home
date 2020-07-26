@@ -7,7 +7,6 @@
         withGTK3 = true;
         withGTK2 = false;
       });
-      flutter = flutterPackages.stable;
       myNodePackages = with nodePackages; [ deno prettier serverless ];
       comma = (import (builtins.fetchTarball
         "https://github.com/Shopify/comma/archive/master.tar.gz") { });
@@ -35,6 +34,7 @@
       ghc
       glib
       gnome3.glade
+      gobject-introspection
       inotify-tools
       ix
       kubectl
@@ -44,6 +44,7 @@
       nasm
       nim
       openmpi
+      playerctl
       pkg-config
       redis
       ruby

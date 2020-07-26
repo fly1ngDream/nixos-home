@@ -4,9 +4,10 @@ import argparse
 import logging
 import sys
 import signal
-import gi
 import json
+import gi
 from gi.repository import Playerctl, GLib
+
 
 gi.require_version("Playerctl", "2.0")
 
@@ -129,8 +130,7 @@ def main():
     for player in manager.props.player_names:
         if arguments.player is not None and arguments.player != player.name:
             logger.debug(
-                "%s is not the filtered player, skipping it",
-                player.name
+                "%s is not the filtered player, skipping it", player.name
             )
             continue
 
