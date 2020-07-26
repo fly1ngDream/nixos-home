@@ -136,6 +136,5 @@
 
   system = {
     stateVersion = "20.03";
-    autoUpgrade.channel = "https://nixos.org/channels/nixos-unstable";
   };
 }
