@@ -94,7 +94,6 @@
 
       # communication
       discord
-      riot-desktop
       slack
       tdesktop
       teams
@@ -126,7 +125,6 @@
 
       # entertainment
       epr
-      spotify
       youtube-dl
 
       # my stuff
