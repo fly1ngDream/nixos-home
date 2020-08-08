@@ -120,7 +120,7 @@
     blueman.enable = true;
     dbus.packages = [ pkgs.gnome3.dconf ];
     geoclue2.enable = true;
-    spotifyd.enable = true;
+    spotifyd.enable = false;
     flatpak.enable = true;
   };
 
