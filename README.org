@@ -1,4 +1,5 @@
 #+TITLE: nixos-home
+#+PROPERTY: header-args:sh :tangle install.sh
 
 [[https://builtwithnix.org/badge.svg][https://builtwithnix.org/badge.svg]]
 
