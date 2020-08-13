@@ -1,0 +1,35 @@
+#+TITLE: nixos-home
+
+[[https://builtwithnix.org/badge.svg][https://builtwithnix.org/badge.svg]]
+
+#+BEGIN_QUOTE
+Dotfiles for Nix + home-manager (mostly for NixOS)
+#+END_QUOTE
+
+* Installation
+** NixOS
+*** Switch to root
+#+BEGIN_SRC sh
+sudo -i
+#+END_SRC
+*** Add ~home-manager~ channel
+#+BEGIN_SRC sh
+nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+#+END_SRC
+*** Clone this repository
+#+BEGIN_SRC sh
+nix-shell -p git --run git clone https://github.com/filalex77/nixos-home.git /etc/nixos
+#+END_SRC
+*** Link the host you're on
+#+BEGIN_SRC sh
+ln -s "/etc/nixos/hosts/$HOST/configuration.nix" /etc/nixos/host-configuration.nix
+#+END_SRC
+*** Switch to the new configuration
+#+BEGIN_SRC sh
+nixos-rebuild switch
+#+END_SRC
+*** Exit root user
+#+BEGIN_SRC sh
+exit
+#+END_SRC
