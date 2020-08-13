@@ -19,7 +19,7 @@ nix-channel --update
 #+END_SRC
 *** Clone this repository
 #+BEGIN_SRC sh
-nix-shell -p git --run git clone https://github.com/filalex77/nixos-home.git /etc/nixos
+nix-shell -p git --run git clone https://github.com/yevhenshymotiuk/nixos-home.git /etc/nixos
 #+END_SRC
 *** Link the host you're on
 #+BEGIN_SRC sh
