@@ -1,4 +1,11 @@
+;;; package --- Config
+;;;
+;;; Commentary:
+;;; Custom config
+;;;
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
+;;;
+;;; Code:
 
 ;; Font
 (setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'normal))
@@ -61,16 +68,17 @@
 
 ;; term
 (defun current-directory()
-  "Returns current directory"
+  "Return current directory."
   (file-name-directory (buffer-file-name)))
 
 (defun term-send-cd()
+  "Change directory in the terminal."
   (term-send-string
     (get-buffer-process "*terminal*")
     (format "cd %s\n%s\n" (current-directory) "clear")))
 
 (defun open-terminal()
-  "Opens terminal in a new window"
+  "Open terminal in a new window."
   (interactive)
   (cond
    ((not (get-buffer-window "*terminal*"))
@@ -83,6 +91,7 @@
          (select-window (get-buffer-window "*terminal*")))))))
 
 (defun open-popup-terminal()
+  "Open terminal in popup buffer."
   (interactive)
   (+term/toggle t)
   (evil-window-set-height 15))
@@ -90,6 +99,7 @@
 
 ;; Trello
 (defun org-trello-sync-buffer-from-trello()
+  "Sync Trello buffer."
   (interactive)
   (org-trello-sync-buffer t))
 
@@ -221,3 +231,9 @@
       "gomodifytags -add-tags json -all -w -file "
       (buffer-file-name)))
   (revert-buffer))
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:
+(provide 'config)
+;;; config.el ends here
