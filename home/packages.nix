@@ -38,6 +38,7 @@
       inotify-tools
       ix
       kubectl
+      litecli
       lld_10
       lua
       minikube
