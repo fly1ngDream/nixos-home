@@ -5,6 +5,7 @@
   programs = {
     firefox = {
       enable = true;
+      package = pkgs.firefox-wayland;
       profiles.default = {
         settings = {
           "browser.startup.homepage" = "https://zombiefox.github.io/nightTab/";
@@ -25,6 +26,6 @@
         # '';
       };
     };
-    zsh.sessionVariables.BROWSER = "firefox";
+    # zsh.sessionVariables.BROWSER = "firefox";
   };
 }
