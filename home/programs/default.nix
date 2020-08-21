@@ -54,5 +54,7 @@
     tmux.enable = true;
     vim.enable = true;
     vscode.enable = true;
+
+    zsh.sessionVariables.BROWSER = "google-chrome-stable";
   };
 }
