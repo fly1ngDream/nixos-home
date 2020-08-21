@@ -45,7 +45,7 @@ in {
           mako # notification daemon
           oguri # animated background utility
           pango
-          redshift-wayland # patched to work with wayland gamma protocol
+          redshift-wlr # patched to work with wayland gamma protocol
           slurp # screen area selection tool
           waybar # polybar-alike
           waypipe # network transparency for Wayland
