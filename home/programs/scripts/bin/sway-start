@@ -61,8 +61,8 @@ function run {
     fi
 }
 
-run -n firefox 1
+run -n google-chrome-stable 1
 run -n emacs 2
 run -n telegram-desktop 3
 run -n alacritty 4
-run -n -t gotop 5
+# run -n -t gotop 5
