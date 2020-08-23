@@ -18,6 +18,7 @@
     ./next.nix
     ./nodejs.nix
     ./oguri
+    ./pipx
     ./prettier
     ./python
     ./ranger
@@ -46,6 +47,7 @@
     jq.enable = true;
     kakoune.enable = true;
     oguri.enable = false;
+    pipx.enable = true;
     skim.enable = true;
     starship = {
       enable = false;
