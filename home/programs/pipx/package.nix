@@ -1,8 +1,5 @@
-{ lib
-, pkgs ? import <nixpkgs> { }
-, pythonPkgs ? pkgs.python38Packages
-, fetchFromGitHub
-}:
+{ lib, pkgs ? import <nixpkgs> { }, pythonPkgs ? pkgs.python38Packages
+, fetchFromGitHub }:
 
 let userpath = pkgs.callPackage ../userpath/package.nix { };
 in pythonPkgs.buildPythonPackage rec {
