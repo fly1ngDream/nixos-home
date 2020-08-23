@@ -28,7 +28,8 @@
 
       export PATH="$PYENV_ROOT/bin:$PATH"
       export PATH="$HOME/.mix/escripts:$PATH"
-      export PATH=$PATH:$(go env GOPATH)/bin
+      export PATH="$(go env GOPATH)/bin:$PATH"
+      export PATH="$HOME/.local/bin:$PATH"
 
       export GOPATH=$(go env GOPATH)
 
