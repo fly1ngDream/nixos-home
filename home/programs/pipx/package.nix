@@ -1,4 +1,5 @@
-{ lib, buildPythonPackage, fetchFromGitHub, userpath, argcomplete, packaging }:
+{ stdenv, buildPythonPackage, fetchFromGitHub, userpath, argcomplete, packaging
+}:
 
 buildPythonPackage rec {
   pname = "pipx";
@@ -15,9 +16,11 @@ buildPythonPackage rec {
 
   doCheck = false;
 
-  meta = {
-    description = ''
-      Install and Run Python Applications in Isolated Environments
-    '';
+  meta = with stdenv.lib; {
+    description =
+      "Install and Run Python Applications in Isolated Environments";
+    homepage = "https://github.com/pipxproject/pipx";
+    license = licenses.mit;
+    maintainers = with maintainers; [ yevhenshymotiuk ];
   };
 }

@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, click, distro, pytest }:
+{ stdenv, buildPythonPackage, click, distro, pytest }:
 
 buildPythonPackage rec {
   pname = "userpath";
@@ -10,14 +10,20 @@ buildPythonPackage rec {
     rev = "a763ba69a90368f69e3a054a8ceadb775ac78ff0";
   };
 
-  propagatedBuildInputs = [ click distro pytest ];
+  propagatedBuildInputs = [ click distro ];
+
+  checkInputs = [ pytest ];
+
+  checkPhase = ''
+    pytest tests
+  '';
 
   doCheck = false;
 
-  meta = {
-    description = ''
-      Cross-platform tool for adding locations to the user PATH,
-      no elevated privileges required!
-    '';
+  meta = with stdenv.lib; {
+    description = "Cross-platform tool for adding locations to the user PATH";
+    homepage = "https://github.com/ofek/userpath";
+    license = [ licenses.apache licenses.mit ];
+    maintainers = with maintainers; [ yevhenshymotiuk ];
   };
 }
