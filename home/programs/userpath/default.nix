@@ -3,7 +3,13 @@
 with lib;
 let
   cfg = config.programs.userpath;
-  userpath = pkgs.callPackage ./package.nix { };
+  userpath = with pythonPkgs;
+    pkgs.callPackage ../userpath/package.nix {
+      buildPythonPackage = pythonPkgs.buildPythonPackage;
+      click = click;
+      distro = distro;
+      pytest = pytest;
+    };
 in {
   options.programs.userpath = {
     enable = mkEnableOption
