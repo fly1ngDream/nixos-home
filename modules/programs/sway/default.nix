@@ -39,7 +39,7 @@ in {
           gebaar-libinput # libinput gestures utility
           glpaper # GL shaders as wallpaper
           grim # screen image capture
-          i3status-rust # cool bar
+          # i3status-rust # cool bar
           imv # image viewer
           kanshi # dynamic display configuration helper
           mako # notification daemon
