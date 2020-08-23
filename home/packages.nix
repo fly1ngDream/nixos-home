@@ -46,6 +46,7 @@
       nim
       openmpi
       playerctl
+      protobuf
       pkg-config
       redis
       ruby
