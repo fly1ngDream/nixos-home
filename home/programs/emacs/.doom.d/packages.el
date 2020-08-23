@@ -4,3 +4,4 @@
 (package! org-trello)
 (package! mu4e-alert)
 (package! emojify)
+(package! protobuf-mode)

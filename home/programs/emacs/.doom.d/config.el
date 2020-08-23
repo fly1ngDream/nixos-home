@@ -232,6 +232,10 @@
       (buffer-file-name)))
   (revert-buffer))
 
+;; protobuf
+(add-hook 'protobuf-mode-hook 'display-line-numbers-mode)
+(add-hook 'protobuf-mode-hook 'hl-line-mode)
+
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
