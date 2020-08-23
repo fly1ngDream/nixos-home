@@ -21,7 +21,6 @@
     cargo-outdated
     cargo-release
     cargo-sweep
-    cargo-tree
     cargo-udeps
     cargo-update
     cargo-watch
