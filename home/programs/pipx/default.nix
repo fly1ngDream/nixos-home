@@ -3,7 +3,21 @@
 with lib;
 let
   cfg = config.programs.pipx;
-  pipx = pkgs.callPackage ./package.nix { };
+  pythonPkgs = pkgs.python38Packages;
+  userpath = with pythonPkgs;
+    pkgs.callPackage ../userpath/package.nix {
+      buildPythonPackage = pythonPkgs.buildPythonPackage;
+      click = click;
+      distro = distro;
+      pytest = pytest;
+    };
+  pipx = with pythonPkgs;
+    pkgs.callPackage ./package.nix {
+      buildPythonPackage = pythonPkgs.buildPythonPackage;
+      userpath = userpath;
+      argcomplete = argcomplete;
+      packaging = packaging;
+    };
 in {
   options.programs.pipx = {
     enable = mkEnableOption

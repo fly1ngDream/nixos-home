@@ -1,16 +1,16 @@
-{ lib, pkgs ? import <nixpkgs> { }, pythonPkgs ? pkgs.python38Packages
-, fetchFromGitHub }:
+{ lib, buildPythonPackage, click, distro, pytest }:
 
-pythonPkgs.buildPythonPackage rec {
+buildPythonPackage rec {
   pname = "userpath";
   version = "1.4.1";
 
   src = builtins.fetchGit {
     url = "git://github.com/ofek/userpath.git";
     ref = "master";
+    rev = "a763ba69a90368f69e3a054a8ceadb775ac78ff0";
   };
 
-  propagatedBuildInputs = with pythonPkgs; [ click distro pytest ];
+  propagatedBuildInputs = [ click distro pytest ];
 
   doCheck = false;
 

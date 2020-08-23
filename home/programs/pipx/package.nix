@@ -1,8 +1,6 @@
-{ lib, pkgs ? import <nixpkgs> { }, pythonPkgs ? pkgs.python38Packages
-, fetchFromGitHub }:
+{ lib, buildPythonPackage, fetchFromGitHub, userpath, argcomplete, packaging }:
 
-let userpath = pkgs.callPackage ../userpath/package.nix { };
-in pythonPkgs.buildPythonPackage rec {
+buildPythonPackage rec {
   pname = "pipx";
   version = "0.15.5.0";
 
@@ -13,7 +11,7 @@ in pythonPkgs.buildPythonPackage rec {
     sha256 = "13z032i8r9f6d09hssvyjpxjacb4wgms5bh2i37da2ili9bh72m6";
   };
 
-  propagatedBuildInputs = with pythonPkgs; [ userpath argcomplete packaging ];
+  propagatedBuildInputs = [ userpath argcomplete packaging ];
 
   doCheck = false;
 
