@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-while getopts f opt; do
+while getopts v opt; do
     case "$opt" in
-        f)
+        v)
             trans :uk "$2"
     esac
 done
