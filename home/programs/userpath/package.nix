@@ -18,6 +18,7 @@ buildPythonPackage rec {
     pytest tests
   '';
 
+  # test suite is difficult to emulate in sandbox due to shell manipulation
   doCheck = false;
 
   meta = with stdenv.lib; {
