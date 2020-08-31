@@ -26,6 +26,6 @@
         # '';
       };
     };
-    # zsh.sessionVariables.BROWSER = "firefox";
+    zsh.sessionVariables.BROWSER = "firefox";
   };
 }
