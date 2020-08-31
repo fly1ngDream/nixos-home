@@ -28,7 +28,7 @@ let
     ];
   pythonWithMyPackages = python.withPackages myPythonPackages;
 in {
-  imports = [ ./black ./pylint ];
+  imports = [ ./black ./pipx ./pylint ];
 
   options.programs.python = {
     enable = mkEnableOption "Python language support";

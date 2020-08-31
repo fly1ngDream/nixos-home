@@ -60,6 +60,7 @@
           python-language-server
         ];
         black.enable = true;
+        pipx.enable = true;
         pylint.enable = true;
       };
       topgrade = {

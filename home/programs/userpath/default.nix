@@ -1,20 +1,19 @@
-{ config, lib, pkgs, ... }:
+with import <nixpkgs> { };
+with python3Packages;
 
-with lib;
-let
-  cfg = config.programs.userpath;
-  userpath = with pythonPkgs;
-    pkgs.callPackage ../userpath/package.nix {
-      buildPythonPackage = pythonPkgs.buildPythonPackage;
-      click = click;
-      distro = distro;
-      pytest = pytest;
-    };
-in {
-  options.programs.userpath = {
-    enable = mkEnableOption
-      "Cross-platform tool for adding locations to the user PATH";
+buildPythonPackage rec {
+  pname = "userpath";
+  version = "1.4.1";
+
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "0mfjmvx286z1dmnrc7bm65x8gj8qrmkcyagl0vf5ywfq0bm48591";
   };
 
-  config = mkIf cfg.enable { home.packages = [ userpath ]; };
+  propagatedBuildInputs = [ click distro ];
+
+  # test suite is difficult to emulate in sandbox due to shell manipulation
+  doCheck = false;
+
+  pythonImportsCheck = [ "click" "userpath" ];
 }
