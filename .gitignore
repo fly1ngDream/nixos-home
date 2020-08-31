@@ -7,3 +7,7 @@ overrides.nix
 
 # Emacs
 *.elc
+
+# Nix builds
+result
+result-*
